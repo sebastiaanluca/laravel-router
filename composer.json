@@ -1,0 +1,32 @@
+{
+    "name": "sebastiaanluca/laravel-router",
+    "type": "library",
+    "description": "An organized approach to handling Laravel routes. Provides additional functionality on top of the default HTTP router.",
+    "keywords": [
+        "Laravel",
+        "router",
+        "laravel-router"
+    ],
+    "homepage": "https://github.com/sebastiaanluca/laravel-router",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastiaan Luca",
+            "email": "hello@sebastiaanluca.com",
+            "homepage": "http://www.sebastiaanluca.com",
+            "role": "Author"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": ">=5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SebastiaanLuca\\Router\\": "src"
+        }
+    }
+}
