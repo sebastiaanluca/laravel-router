@@ -163,7 +163,7 @@ $this->router->get('user/activations/{uuid}', function ($uuid) {
 ```
 
 
-### Full-domain routing (TODO)
+### Full-domain routing
 
 Another great feature of Laravel is [sub-domain routing](https://laravel.com/docs/5.1/routing#route-groups) which allows you to handle multiple subdomains within a single Laravel project. The only caveat there is that it only does that and doesn't handle full domains. Laravel Router fixes that for you so you can direct multiple domains to a single Laravel project and handle them all at once.
 
@@ -173,7 +173,7 @@ Simply define a route group with the `{domain}` pattern and use it in your callb
 $this->router->group(['domain' => '{domain}'], function () {
 
     $this->router->get('user/{id}', function ($domain, $id) {
-        //
+        return 'You\'re visiting from ' . $domain;
     });
     
 });
