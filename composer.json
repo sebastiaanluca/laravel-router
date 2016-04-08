@@ -5,7 +5,8 @@
     "keywords": [
         "Laravel",
         "router",
-        "laravel-router"
+        "laravel-router",
+        "http"
     ],
     "homepage": "https://github.com/sebastiaanluca/laravel-router",
     "license": "MIT",
@@ -14,7 +15,7 @@
             "name": "Sebastiaan Luca",
             "email": "hello@sebastiaanluca.com",
             "homepage": "http://www.sebastiaanluca.com",
-            "role": "Author"
+            "role": "author"
         }
     ],
     "require": {
