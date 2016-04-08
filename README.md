@@ -1,8 +1,9 @@
 # Laravel Router
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
-[![Total Downloads][ico-downloads]][link-downloads]
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round)](LICENSE.md)
+[![Build Status](https://travis-ci.org/sebastiaanluca/laravel-router.svg?style=flat-round)](https://travis-ci.org/sebastiaanluca/laravel-router)
+[![Total Downloads](https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round)][link-downloads]
 
 __An organized approach to handling routes in Laravel and Lumen.__ Also provides additional functionality on top of the default HTTP router.
 
@@ -249,10 +250,6 @@ My name is Sebastiaan and I'm a freelance back-end developer from Belgium specia
 ## License
 
 This package operates under the MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
-
-[ico-version]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?style=flat-round
-[ico-downloads]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-router
 [link-downloads]: https://packagist.org/packages/sebastiaanluca/laravel-router
