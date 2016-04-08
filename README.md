@@ -6,14 +6,14 @@
 
 __An organized approach to handling routes in Laravel and Lumen.__ Also provides additional functionality on top of the default HTTP router.
 
-The intended use is to organize your routes into **routers** based on functionality. For instance admin, public, and user routes are separated into different classes instead of one long `routes.php` file or scattered throughout different PHP files. Or even worse, directly in your application's HTTP kernel class.
+The intended use is to organize your routes into **routers** based on functionality. For instance admin, public, and user routes are separated into different classes instead of one long `routes.php` file or scattered throughout different PHP files.
 
 ## Install
 
 Install the package through Composer by using the following command:
 
 ``` bash
-$ composer require sebastiaanluca/laravel-router
+composer require sebastiaanluca/laravel-router
 ```
 
 Add the service provider to the `providers` array in your `config/app.php` file:
@@ -22,9 +22,7 @@ Add the service provider to the `providers` array in your `config/app.php` file:
 SebastiaanLuca\Router\RouterServiceProvider::class,
 ```
 
-The following step is __optional__, but encouraged to simplify setup and allow you to use some neat functionality this package offers.
-
-Your application's HTTP kernel (usually found at `app\Http\Kernel` in your project) should extend the package's custom kernel instead of the default. So just replace `use Illuminate\Foundation\Http\Kernel as HttpKernel;` at the top of the class with the following line:
+Next, your application's HTTP kernel (usually found at `app\Http\Kernel` in your project) should extend the package's custom kernel instead of the default. So just replace `use Illuminate\Foundation\Http\Kernel as HttpKernel;` at the top of the class with the following line:
 
 ``` php
 use SebastiaanLuca\Router\Kernel as HttpKernel;
