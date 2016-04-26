@@ -79,7 +79,6 @@ class ExtendedRouter extends Router
             }
             
             // If we have any middleware registered to the route, apply it
-            // TODO: get current route middleware, merge with new, remove duplicates using array_unique, re-set middleware on route
             $route->middleware($middleware);
         }
     }
