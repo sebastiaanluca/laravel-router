@@ -30,7 +30,7 @@ class RouterServiceProvider extends RouteServiceProvider
         
         // Just instantiate each router as they handle the mapping itself
         foreach ($routers as $router) {
-            app($router);
+            $this->app->make($router);
         }
     }
     
