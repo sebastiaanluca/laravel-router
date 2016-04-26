@@ -1,9 +1,9 @@
 <?php
 
-namespace SebastiaanLuca\Router\Tests\Functional;
+namespace SebastiaanLuca\Router\Tests;
 
+use Illuminate\Foundation\Bootstrap\BootProviders;
 use SebastiaanLuca\Router\ExtendedRouter;
-use SebastiaanLuca\Router\Tests\TestCase;
 
 class ExtendedRouterTest extends TestCase
 {
