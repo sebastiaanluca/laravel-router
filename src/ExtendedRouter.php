@@ -49,15 +49,14 @@ class ExtendedRouter extends Router
     
     
     /**
-     * Match each defined route in the application against a registered named route middleware.
+     * Add middleware to a named route.
      *
-     * Handles wildcards and such too.
+     * Optionally handles wildcard named routes.
      *
      * @param string $name
      * @param array $middleware
      */
-    // TODO: revert back to addMiddlewareToRoute
-    protected function setRouteMiddleware($name, array $middleware)
+    protected function addMiddlewareToRoute($name, array $middleware)
     {
         // Get all registered app routes
         $routes = $this->getRoutes()->getIterator();
@@ -88,7 +87,7 @@ class ExtendedRouter extends Router
     
     
     /**
-     * Add middleware to a named route.
+     * Register middleware to add to a named route.
      *
      * AKA Route::when() but for middleware. Use an asterisk (*) for wildcard entries. E.g.
      * `users.*` filters all user routes.
@@ -115,7 +114,7 @@ class ExtendedRouter extends Router
             // App is ready to go and all routes have been registered,
             // so we can immediately link the middleware to the route
             if ($this->isBootstrapped) {
-                $this->setRouteMiddleware($route, $this->routeMiddleware[$route]);
+                $this->addMiddlewareToRoute($route, $this->routeMiddleware[$route]);
             }
         }
     }
@@ -131,7 +130,7 @@ class ExtendedRouter extends Router
         $this->isBootstrapped = true;
         
         foreach ($this->routeMiddleware as $route => $middleware) {
-            $this->setRouteMiddleware($route, $middleware);
+            $this->addMiddlewareToRoute($route, $middleware);
         }
     }
     
