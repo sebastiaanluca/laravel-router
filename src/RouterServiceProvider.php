@@ -11,6 +11,16 @@ class RouterServiceProvider extends RouteServiceProvider
 {
     
     /**
+     * Get the application's kernel implementation.
+     *
+     * @return \Illuminate\Foundation\Application|mixed
+     */
+    protected function getApplicationKernel()
+    {
+        return app(AppKernel::class);
+    }
+    
+    /**
      * Map user-defined routers.
      */
     protected function registerUserRouters()
@@ -20,7 +30,7 @@ class RouterServiceProvider extends RouteServiceProvider
         // implementation. Still need to check if it's the package's
         // custom kernel though as that is an optional setup choice.
         
-        $kernel = app(AppKernel::class);
+        $kernel = $this->getApplicationKernel();
         
         if (! $kernel instanceof Kernel) {
             return;

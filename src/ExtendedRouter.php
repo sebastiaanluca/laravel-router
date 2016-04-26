@@ -108,7 +108,7 @@ class ExtendedRouter extends Router
             // Register the middleware and link it to the given route.
             // Also make sure the middleware to be applied is unique
             // (i.e. only add a certain middleware once)
-            $this->routeMiddleware[$route] = array_unique(array_merge(array_get($this->routeMiddleware, $route, []), $middleware));
+            $this->routeMiddleware[$route] = array_values(array_unique(array_merge(array_get($this->routeMiddleware, $route, []), $middleware)));
             
             // App is ready to go and all routes have been registered,
             // so we can immediately link the middleware to the route

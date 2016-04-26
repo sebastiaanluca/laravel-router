@@ -34,14 +34,14 @@ class BaseRouterTest extends TestCase
         $router->__construct(app('router'));
     }
     
-    public function testItSetsNamespace()
-    {
-        // TODO
-    }
-    
-    public function testItCanAddASuffixToANamespace()
-    {
-        // TODO
-    }
+    //    public function testItSetsNamespace()
+    //    {
+    //        // TODO
+    //    }
+    //    
+    //    public function testItCanAddASuffixToANamespace()
+    //    {
+    //        // TODO
+    //    }
     
 }
