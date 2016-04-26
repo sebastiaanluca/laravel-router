@@ -228,7 +228,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-None yet.
+Run `composer test` or `vendor/bin/phpunit`.
 
 ## Contributing
 

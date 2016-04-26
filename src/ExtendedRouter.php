@@ -56,7 +56,8 @@ class ExtendedRouter extends Router
      * @param string $name
      * @param array $middleware
      */
-    protected function addMiddlewareToRoute($name, array $middleware)
+    // TODO: revert back to addMiddlewareToRoute
+    protected function setRouteMiddleware($name, array $middleware)
     {
         // Get all registered app routes
         $routes = $this->getRoutes()->getIterator();
@@ -79,6 +80,7 @@ class ExtendedRouter extends Router
             }
             
             // If we have any middleware registered to the route, apply it
+            // TODO: get current route middleware, merge with new, remove duplicates using array_unique, re-set middleware on route
             $route->middleware($middleware);
         }
     }
@@ -105,13 +107,15 @@ class ExtendedRouter extends Router
         }
         
         foreach ($routes as $route) {
-            // Register the middleware and link it to the given
+            // Register the middleware and link it to the given route.
+            // Also make sure the middleware to be applied is unique
+            // (i.e. only add a certain middleware once)
             $this->routeMiddleware[$route] = array_unique(array_merge(array_get($this->routeMiddleware, $route, []), $middleware));
             
             // App is ready to go and all routes have been registered,
             // so we can immediately link the middleware to the route
             if ($this->isBootstrapped) {
-                $this->addMiddlewareToRoute($route, $this->routeMiddleware[$route]);
+                $this->setRouteMiddleware($route, $this->routeMiddleware[$route]);
             }
         }
     }
@@ -127,7 +131,7 @@ class ExtendedRouter extends Router
         $this->isBootstrapped = true;
         
         foreach ($this->routeMiddleware as $route => $middleware) {
-            $this->addMiddlewareToRoute($route, $middleware);
+            $this->setRouteMiddleware($route, $middleware);
         }
     }
     
