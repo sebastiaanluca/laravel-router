@@ -11,14 +11,14 @@ class BaseRouterTest extends TestCase
     /**
      * Create a new router.
      *
-     * @return \Mockery\MockInterface
+     * @return \Mockery\MockInterface|\SebastiaanLuca\Router\Routers\BaseRouter
      */
     protected function createRouter()
     {
         // Create a basic router and implement the map method.
         // makePartial() prevents the constructor from being called.
         return $this->mock(BaseRouter::class, [
-            'map' => null,
+            null => null,
         ])->makePartial();
     }
     
@@ -34,14 +34,26 @@ class BaseRouterTest extends TestCase
         $router->__construct(app('router'));
     }
     
-    //    public function testItSetsNamespace()
-    //    {
-    //        // TODO
-    //    }
-    //    
-    //    public function testItCanAddASuffixToANamespace()
-    //    {
-    //        // TODO
-    //    }
+    public function testItSetsNamespace()
+    {
+        $router = $this->createRouter();
+        
+        $this->setValueOfInternalProperty($router, 'namespace', 'App\\Http\\Routers');
+        
+        $namespace = $router->getNamespace();
+        
+        $this->assertEquals('App\\Http\\Routers', $namespace);
+    }
+    
+    public function testItCanAddASuffixToANamespace()
+    {
+        $router = $this->createRouter();
+        
+        $this->setValueOfInternalProperty($router, 'namespace', 'App\\Http\\Routers');
+        
+        $namespace = $router->getNamespace('Sub');
+        
+        $this->assertEquals('App\\Http\\Routers\\Sub', $namespace);
+    }
     
 }
