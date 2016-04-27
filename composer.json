@@ -5,7 +5,8 @@
     "keywords": [
         "Laravel",
         "router",
-        "laravel-router"
+        "laravel-router",
+        "http"
     ],
     "homepage": "https://github.com/sebastiaanluca/laravel-router",
     "license": "MIT",
@@ -14,23 +15,33 @@
             "name": "Sebastiaan Luca",
             "email": "hello@sebastiaanluca.com",
             "homepage": "http://www.sebastiaanluca.com",
-            "role": "Author"
+            "role": "author"
         }
     ],
     "require": {
-        "php": ">=5.5.9",
-        "illuminate/support": "^5.1",
-        "illuminate/container": "^5.1",
-        "illuminate/contracts": "^5.1",
-        "illuminate/routing": "^5.1",
-        "illuminate/events": "^5.1"
+        "php": "^5.5|^7.0",
+        "illuminate/support": "5.1.* || 5.2.*",
+        "illuminate/container": "5.1.* || 5.2.*",
+        "illuminate/contracts": "5.1.* || 5.2.*",
+        "illuminate/routing": "5.1.* || 5.2.*",
+        "illuminate/events": "5.1.* || 5.2.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "^4.8",
+        "mockery/mockery": "^0.9.4",
+        "orchestra/testbench": "^3.2"
     },
     "autoload": {
         "psr-4": {
             "SebastiaanLuca\\Router\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SebastiaanLuca\\Router\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }
