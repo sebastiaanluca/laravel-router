@@ -47,6 +47,8 @@ class TestCase extends OrchestraTestCase
      *
      * @param mixed $class
      * @param string $name
+     *
+     * @return \ReflectionMethod
      */
     protected function enablePublicAccessOfMethod($class, $name)
     {
@@ -54,6 +56,26 @@ class TestCase extends OrchestraTestCase
         $method = $reflection->getMethod($name);
         
         $method->setAccessible(true);
+        
+        return $method;
+    }
+    
+    /**
+     * Sets a private or protected class property to be publicly accessible.
+     *
+     * @param $class
+     * @param $property
+     *
+     * @return \ReflectionProperty
+     */
+    protected function enablePublicAccessOfProperty($class, $property)
+    {
+        $reflection = new ReflectionClass($class);
+        $property = $reflection->getProperty($property);
+        
+        $property->setAccessible(true);
+        
+        return $property;
     }
     
     /**
@@ -62,14 +84,16 @@ class TestCase extends OrchestraTestCase
      * @param object $instance
      * @param string $property
      * @param mixed $value
+     *
+     * @return \ReflectionProperty
      */
     protected function setValueOfInternalProperty($instance, $property, $value)
     {
-        $reflection = new ReflectionClass($instance);
-        $property = $reflection->getProperty($property);
+        $property = $this->enablePublicAccessOfProperty($instance, $property);
         
-        $property->setAccessible(true);
         $property->setValue($instance, $value);
+        
+        return $property;
     }
     
 }
