@@ -3,7 +3,10 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round)](LICENSE.md)
 [![Build Status](https://travis-ci.org/sebastiaanluca/laravel-router.svg?style=flat-round)](https://travis-ci.org/sebastiaanluca/laravel-router)
-[![Total Downloads](https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round)][link-downloads]
+[![Total Downloads](https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
+
+[![Share this package on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
+[![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=Check%20out%20this%20nifty%20way%20of%20organizing%20your%20%23Laravel%20routes!%20https%3A//github.com/sebastiaanluca/laravel-router%20via%20%40sebastiaanluca)
 
 __An organized approach to handling routes in Laravel and Lumen.__ Also provides additional functionality on top of the default HTTP router.
 
@@ -252,7 +255,6 @@ My name is Sebastiaan and I'm a freelance back-end developer from Belgium specia
 This package operates under the MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-router
-[link-downloads]: https://packagist.org/packages/sebastiaanluca/laravel-router
 [link-contributors]: ../../contributors
 [link-author]: https://github.com/sebastiaanluca
 [author-portfolio]: http://www.sebastiaanluca.com
