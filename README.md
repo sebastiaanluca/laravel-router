@@ -36,9 +36,11 @@ use SebastiaanLuca\Router\Kernel as HttpKernel;
 
 ### Setting up routers
 
-To get started, you have to create a router that will contain your routes. The following is an example of such a router. It can be placed anywhere you like, though I'd suggest grouping them under `App\Http\Routers`.
+To get started, you have to create at least one router that will contain some routes. The following is an example of such a router. It can be placed anywhere you like, though I'd suggest grouping them under `App\Http\Routers`.
 
 The `map` method is where you should define your routes and is the *only* requirement when using a router. The Laravel routing instance is automatically resolved from the IoC container, so you can use any standard routing functionality you want with the additional functionality this package provides (see further down).
+
+__Remember__ that using this packages *changes nothing* to the way you define your routes. It's just a way of organizing them. Optionally you can use the additional functionality it provides, but that's not a requirement.
 
 ``` php
 <?php
@@ -56,8 +58,12 @@ class PublicRouter extends BaseRouter implements RouterInterface
      */
     public function map()
     {
-        $this->router->get('/', function () {
-            return 'Congratulations!';
+        $this->router->group(['middleware' => ['web']], function () {
+        
+            $this->router->get('/', function () {
+                return view('welcome');
+            });
+            
         });
     }
     
