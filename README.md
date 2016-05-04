@@ -32,6 +32,10 @@ Next, your application's HTTP kernel (usually found at `app\Http\Kernel` in your
 use SebastiaanLuca\Router\Kernel as HttpKernel;
 ```
 
+### Development package
+
+Please specify a fixed version in your `composer.json` file when using this package in your project. This is still a work-in-progress and has no version 1.0 yet, which means it can change drastically throughout development.
+
 ## Usage
 
 ### Setting up routers
