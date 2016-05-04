@@ -4,6 +4,7 @@ namespace SebastiaanLuca\Router;
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
 use Illuminate\Foundation\Bootstrap\BootProviders;
 use Illuminate\Routing\Router;
 use SebastiaanLuca\Router\EventHandlers\RegisterRouteMiddleware;
@@ -15,7 +16,7 @@ use SebastiaanLuca\Router\EventHandlers\RegisterRouteMiddleware;
  *
  * @package SebastiaanLuca\Routing
  */
-class ExtendedRouter extends Router
+class ExtendedRouter extends Router implements RegistrarContract
 {
     
     /**
