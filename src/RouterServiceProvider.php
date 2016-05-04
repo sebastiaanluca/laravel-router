@@ -58,9 +58,6 @@ class RouterServiceProvider extends RouteServiceProvider
         
         // Swap the default router with our extended router
         $this->app->alias(ExtendedRouter::class, 'router');
-        
-        // This is optional, but you never know
-        $this->app->alias(ExtendedRouter::class, Router::class);
     }
     
     /**
