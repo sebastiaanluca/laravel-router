@@ -33,16 +33,15 @@ class Kernel extends HttpKernel implements KernelContract
      */
     protected function dispatchToRouter()
     {
-        // Reset the class' router to use our new extended router
-        // which got instantiated and bound into the IoC after the
-        // default router got set up and bound.
-        $this->router = $this->app['router'];
+        // Reconstruct the kernel and reset the class' router to use our new
+        // extended router which got instantiated and bound into the IoC after
+        // the default router got set up and bound. This might look kinda odd,
+        // but poses no direct consequences.
+        parent::__construct($this->app, $this->app->make('router'));
         
         // Continue as normal
         return parent::dispatchToRouter();
     }
-    
-    
     
     /**
      * Get the user-defined routers.
