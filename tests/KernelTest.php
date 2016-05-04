@@ -2,6 +2,8 @@
 
 namespace SebastiaanLuca\Router\Tests;
 
+use Illuminate\Routing\Router;
+use SebastiaanLuca\Router\ExtendedRouter;
 use SebastiaanLuca\Router\Kernel;
 
 class KernelTest extends TestCase
@@ -12,9 +14,10 @@ class KernelTest extends TestCase
      */
     protected function createKernel()
     {
+        // Mocking of the kernel using the default router 
         return $this->mock(Kernel::class, [
             $this->app,
-            $this->app['router'],
+            $this->app->make(Router::class),
         ])->makePartial()->shouldAllowMockingProtectedMethods();
     }
     
@@ -26,7 +29,7 @@ class KernelTest extends TestCase
         $property = $this->enablePublicAccessOfProperty($kernel, 'router');
         
         // The router we're using as replacement
-        $router = $this->mock('mockedRouter');
+        $router = $this->mock(ExtendedRouter::class, [null => null]);
         
         // Bind our mocked router into the IoC
         $this->app->instance('router', $router);

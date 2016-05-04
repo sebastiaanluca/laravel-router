@@ -3,7 +3,10 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round)](LICENSE.md)
 [![Build Status](https://travis-ci.org/sebastiaanluca/laravel-router.svg?style=flat-round)](https://travis-ci.org/sebastiaanluca/laravel-router)
-[![Total Downloads](https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round)][link-downloads]
+[![Total Downloads](https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
+
+[![Share this package on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
+[![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=Check%20out%20this%20nifty%20way%20of%20organizing%20your%20%23Laravel%20routes!%20https%3A//github.com/sebastiaanluca/laravel-router%20via%20%40sebastiaanluca)
 
 __An organized approach to handling routes in Laravel and Lumen.__ Also provides additional functionality on top of the default HTTP router.
 
@@ -29,13 +32,19 @@ Next, your application's HTTP kernel (usually found at `app\Http\Kernel` in your
 use SebastiaanLuca\Router\Kernel as HttpKernel;
 ```
 
+### Development package
+
+Please specify a fixed version in your `composer.json` file when using this package in your project. This is still a work-in-progress and has no version 1.0 yet, which means it can change drastically throughout development.
+
 ## Usage
 
 ### Setting up routers
 
-To get started, you have to create a router that will contain your routes. The following is an example of such a router. It can be placed anywhere you like, though I'd suggest grouping them under `App\Http\Routers`.
+To get started, you have to create at least one router that will contain some routes. The following is an example of such a router. It can be placed anywhere you like, though I'd suggest grouping them under `App\Http\Routers`.
 
 The `map` method is where you should define your routes and is the *only* requirement when using a router. The Laravel routing instance is automatically resolved from the IoC container, so you can use any standard routing functionality you want with the additional functionality this package provides (see further down).
+
+__Remember__ that using this packages *changes nothing* to the way you define your routes. It's just a way of organizing them. Optionally you can use the additional functionality it provides, but that's not a requirement.
 
 ``` php
 <?php
@@ -53,8 +62,12 @@ class PublicRouter extends BaseRouter implements RouterInterface
      */
     public function map()
     {
-        $this->router->get('/', function () {
-            return 'Congratulations!';
+        $this->router->group(['middleware' => ['web']], function () {
+        
+            $this->router->get('/', function () {
+                return view('welcome');
+            });
+            
         });
     }
     
@@ -252,7 +265,6 @@ My name is Sebastiaan and I'm a freelance back-end developer from Belgium specia
 This package operates under the MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-router
-[link-downloads]: https://packagist.org/packages/sebastiaanluca/laravel-router
 [link-contributors]: ../../contributors
 [link-author]: https://github.com/sebastiaanluca
 [author-portfolio]: http://www.sebastiaanluca.com

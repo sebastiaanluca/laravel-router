@@ -4,6 +4,7 @@ namespace SebastiaanLuca\Router\Tests\EventHandlers;
 
 use Illuminate\Foundation\Bootstrap\BootProviders;
 use SebastiaanLuca\Router\EventHandlers\RegisterRouteMiddleware;
+use SebastiaanLuca\Router\ExtendedRouter;
 use SebastiaanLuca\Router\Tests\TestCase;
 
 class RegisterRouteMiddlewareTest extends TestCase
@@ -20,7 +21,7 @@ class RegisterRouteMiddlewareTest extends TestCase
     
     public function testRegisterRouteMiddlewareEventHandlerInitiatesLinkingMiddleware()
     {
-        $router = $this->mock('router');
+        $router = $this->mock(ExtendedRouter::class, [null => null]);
         
         $router->shouldReceive('linkNamedRouteMiddleware')->once();
         

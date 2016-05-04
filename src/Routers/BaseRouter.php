@@ -3,6 +3,7 @@
 namespace SebastiaanLuca\Router\Routers;
 
 use SebastiaanLuca\Router\ExtendedRouter;
+use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
 
 /**
  * Class BaseRouter
@@ -31,9 +32,9 @@ abstract class BaseRouter implements RouterInterface
     /**
      * BaseRouter constructor.
      *
-     * @param \SebastiaanLuca\Router\ExtendedRouter $router
+     * @param \Illuminate\Contracts\Routing\Registrar $router
      */
-    public function __construct(ExtendedRouter $router)
+    public function __construct(RegistrarContract $router)
     {
         $this->router = $router;
         
