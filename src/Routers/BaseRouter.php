@@ -22,6 +22,13 @@ abstract class BaseRouter implements RouterInterface
     protected $router;
     
     /**
+     * The Dingo API router.
+     *
+     * @var \Dingo\Api\Routing\Router
+     */
+    protected $api;
+    
+    /**
      * The default controller namespace.
      *
      * @var string
@@ -37,7 +44,21 @@ abstract class BaseRouter implements RouterInterface
     {
         $this->router = $router;
         
+        $this->setUpApiRouter();
+        
         $this->map();
+    }
+    
+    
+    
+    /**
+     * Assign the API router if the Dingo API package is installed.
+     */
+    protected function setUpApiRouter()
+    {
+        if (class_exists('\Dingo\Api\Routing\Router')) {
+            $this->api = app('\Dingo\Api\Routing\Router');
+        }
     }
     
     
