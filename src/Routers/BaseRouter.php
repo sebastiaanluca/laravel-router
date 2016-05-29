@@ -2,7 +2,6 @@
 
 namespace SebastiaanLuca\Router\Routers;
 
-use SebastiaanLuca\Router\ExtendedRouter;
 use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
 
 /**
