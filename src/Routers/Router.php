@@ -5,13 +5,13 @@ namespace SebastiaanLuca\Router\Routers;
 use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
 
 /**
- * Class BaseRouter
+ * Class Router
  *
  * The base class every router should extend.
  *
  * @package SebastiaanLuca\Router\Routers
  */
-abstract class BaseRouter implements RouterInterface
+abstract class Router implements RouterInterface
 {
     
     /**
@@ -36,7 +36,7 @@ abstract class BaseRouter implements RouterInterface
     protected $namespace = '';
     
     /**
-     * BaseRouter constructor.
+     * Router constructor.
      *
      * @param \Illuminate\Contracts\Routing\Registrar $router
      */

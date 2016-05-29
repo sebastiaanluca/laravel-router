@@ -2,7 +2,7 @@
 
 namespace SebastiaanLuca\Router\Tests\Routers;
 
-use SebastiaanLuca\Router\Routers\BaseRouter;
+use SebastiaanLuca\Router\Routers\Router;
 use SebastiaanLuca\Router\Tests\TestCase;
 
 class BaseRouterTest extends TestCase
@@ -11,13 +11,13 @@ class BaseRouterTest extends TestCase
     /**
      * Create a new router.
      *
-     * @return \Mockery\MockInterface|\SebastiaanLuca\Router\Routers\BaseRouter
+     * @return \Mockery\MockInterface|\SebastiaanLuca\Router\Routers\Router
      */
     protected function createRouter()
     {
         // Create a basic router and implement the map method.
         // makePartial() prevents the constructor from being called.
-        return $this->mock(BaseRouter::class, [
+        return $this->mock(Router::class, [
             null => null,
         ])->makePartial();
     }
