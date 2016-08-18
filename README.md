@@ -12,6 +12,10 @@ __An organized approach to handling routes in Laravel and Lumen.__ Also provides
 
 The intended use is to organize your routes into **routers** based on functionality. For instance admin, public, and user routes are separated into different classes instead of one long `routes.php` file or scattered throughout different PHP files.
 
+## Version
+
+Version 1 is targeted for use within a Laravel 5.1 or 5.2 application. If you're looking for a version for 5.3 or later, have a look at v2.
+
 ## Install
 
 Install the package through Composer by using the following command:
