@@ -20,3 +20,4 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Fixed
 - Removed an unused imported class (ExtendedRouter) in the base router
+- Updated the router service provider to reflect Laravel 5.3 changes
