@@ -59,10 +59,8 @@ class RouterServiceProvider extends RouteServiceProvider
     
     /**
      * Define your route model bindings, pattern filters, etc using the Bootstrap router.
-     *
-     * @param \Illuminate\Routing\Router $router
      */
-    public function boot(Router $router)
+    public function boot()
     {
         // Create a router that defines route patterns and whatnot
         $this->app->make(BootstrapRouter::class);
