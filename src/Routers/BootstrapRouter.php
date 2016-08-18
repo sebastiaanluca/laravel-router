@@ -9,7 +9,7 @@ namespace SebastiaanLuca\Router\Routers;
  *
  * @package SebastiaanLuca\Router\Routers
  */
-class BootstrapRouter extends Router implements RouterInterface
+class BootstrapRouter extends Router
 {
     
     /**

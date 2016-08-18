@@ -11,7 +11,7 @@ use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
  *
  * @package SebastiaanLuca\Router\Routers
  */
-abstract class Router implements RouterInterface
+abstract class Router
 {
     
     /**
