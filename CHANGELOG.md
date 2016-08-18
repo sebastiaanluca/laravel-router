@@ -4,19 +4,16 @@ All Notable changes to `laravel-router` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## NEXT - YYYY-MM-DD
+## Unreleased
 
 ### Added
-- Nothing
+- Detect use of the Dingo/Api package and auto-assign it's API router for ease-of-use
 
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
+### Changed
+- Renamed `BaseRouter` to `Router`
 
 ### Removed
-- Nothing
+- Removed the `Router` interface
 
-### Security
-- Nothing
+### Fixed
+- Removed an unused imported class (ExtendedRouter) in the base router
