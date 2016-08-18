@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+...
+
+## v2.0.0 (2016-08-18)
+
 ### Added
 - Detect use of the Dingo/Api package and auto-assign it's API router for ease-of-use
 
