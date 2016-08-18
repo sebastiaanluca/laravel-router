@@ -8,6 +8,11 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ...
 
+## v2.0.4 (2016-08-18)
+
+### Changed
+- Updated Travis CI configuration to reflect Laravel 5.3 changes and added PHP 7.1 support 
+
 ## v2.0.3 (2016-08-18)
 
 ### Fixed
