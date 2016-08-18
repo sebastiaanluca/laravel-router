@@ -9,7 +9,6 @@ use SebastiaanLuca\Router\Routers\BootstrapRouter;
 
 class RouterServiceProvider extends RouteServiceProvider
 {
-    
     /**
      * Get the application's kernel implementation.
      *
@@ -44,8 +43,6 @@ class RouterServiceProvider extends RouteServiceProvider
         }
     }
     
-    
-    
     /**
      * Register the service provider.
      */
@@ -62,10 +59,8 @@ class RouterServiceProvider extends RouteServiceProvider
     
     /**
      * Define your route model bindings, pattern filters, etc using the Bootstrap router.
-     *
-     * @param \Illuminate\Routing\Router $router
      */
-    public function boot(Router $router)
+    public function boot()
     {
         // Create a router that defines route patterns and whatnot
         $this->app->make(BootstrapRouter::class);
@@ -73,5 +68,4 @@ class RouterServiceProvider extends RouteServiceProvider
         // Map user-defined routers
         $this->registerUserRouters();
     }
-    
 }

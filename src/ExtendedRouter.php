@@ -18,7 +18,6 @@ use SebastiaanLuca\Router\EventHandlers\RegisterRouteMiddleware;
  */
 class ExtendedRouter extends Router implements RegistrarContract
 {
-    
     /**
      * The registered middleware for named routes.
      *
@@ -46,8 +45,6 @@ class ExtendedRouter extends Router implements RegistrarContract
         // Add all registered named route middlewares after all service providers have been loaded
         app('events')->listen('bootstrapped: ' . BootProviders::class, RegisterRouteMiddleware::class);
     }
-    
-    
     
     /**
      * Add middleware to a named route.
@@ -83,8 +80,6 @@ class ExtendedRouter extends Router implements RegistrarContract
             $route->middleware($middleware);
         }
     }
-    
-    
     
     /**
      * Register middleware to add to a named route.
@@ -133,5 +128,4 @@ class ExtendedRouter extends Router implements RegistrarContract
             $this->addMiddlewareToRoute($route, $middleware);
         }
     }
-    
 }

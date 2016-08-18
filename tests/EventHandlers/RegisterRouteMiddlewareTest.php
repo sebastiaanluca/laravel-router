@@ -9,7 +9,6 @@ use SebastiaanLuca\Router\Tests\TestCase;
 
 class RegisterRouteMiddlewareTest extends TestCase
 {
-    
     public function testRegisterRouteMiddlewareEventHandlerGetsCalled()
     {
         $handler = $this->mock(RegisterRouteMiddleware::class);
@@ -29,5 +28,4 @@ class RegisterRouteMiddlewareTest extends TestCase
         
         $handler->handle(null);
     }
-    
 }

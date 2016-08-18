@@ -14,7 +14,6 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
  */
 class Kernel extends HttpKernel implements KernelContract
 {
-    
     /**
      * The routers to automatically map.
      *
@@ -23,8 +22,6 @@ class Kernel extends HttpKernel implements KernelContract
     protected $routers = [
         //
     ];
-    
-    
     
     /**
      * Get the route dispatcher callback.
@@ -52,5 +49,4 @@ class Kernel extends HttpKernel implements KernelContract
     {
         return $this->routers;
     }
-    
 }

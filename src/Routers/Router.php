@@ -2,25 +2,30 @@
 
 namespace SebastiaanLuca\Router\Routers;
 
-use SebastiaanLuca\Router\ExtendedRouter;
 use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
 
 /**
- * Class BaseRouter
+ * Class Router
  *
  * The base class every router should extend.
  *
  * @package SebastiaanLuca\Router\Routers
  */
-abstract class BaseRouter implements RouterInterface
+abstract class Router
 {
-    
     /**
      * The routing instance.
      *
      * @var \SebastiaanLuca\Router\ExtendedRouter|\Illuminate\Routing\Router
      */
     protected $router;
+    
+    /**
+     * The Dingo API router.
+     *
+     * @var \Dingo\Api\Routing\Router
+     */
+    protected $api;
     
     /**
      * The default controller namespace.
@@ -30,7 +35,7 @@ abstract class BaseRouter implements RouterInterface
     protected $namespace = '';
     
     /**
-     * BaseRouter constructor.
+     * Router constructor.
      *
      * @param \Illuminate\Contracts\Routing\Registrar $router
      */
@@ -38,10 +43,20 @@ abstract class BaseRouter implements RouterInterface
     {
         $this->router = $router;
         
+        $this->setUpApiRouter();
+        
         $this->map();
     }
     
-    
+    /**
+     * Assign the API router if the Dingo API package is installed.
+     */
+    protected function setUpApiRouter()
+    {
+        if (class_exists('\Dingo\Api\Routing\Router')) {
+            $this->api = app('\Dingo\Api\Routing\Router');
+        }
+    }
     
     /**
      * Get the default namespace with the suffix attached.
@@ -59,11 +74,8 @@ abstract class BaseRouter implements RouterInterface
         return $this->namespace . '\\' . $suffix;
     }
     
-    
-    
     /**
      * Map the routes.
      */
     public abstract function map();
-    
 }

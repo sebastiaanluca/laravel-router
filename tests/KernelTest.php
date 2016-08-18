@@ -8,7 +8,6 @@ use SebastiaanLuca\Router\Kernel;
 
 class KernelTest extends TestCase
 {
-    
     /**
      * @return \Mockery\MockInterface|\SebastiaanLuca\Router\Kernel
      */
@@ -20,8 +19,6 @@ class KernelTest extends TestCase
             $this->app->make(Router::class),
         ])->makePartial()->shouldAllowMockingProtectedMethods();
     }
-    
-    
     
     public function testItResetsTheLocalRouter()
     {
@@ -56,5 +53,4 @@ class KernelTest extends TestCase
         
         $this->assertEquals($routers, $kernel->getRouters());
     }
-    
 }

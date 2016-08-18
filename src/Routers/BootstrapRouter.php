@@ -9,9 +9,8 @@ namespace SebastiaanLuca\Router\Routers;
  *
  * @package SebastiaanLuca\Router\Routers
  */
-class BootstrapRouter extends BaseRouter implements RouterInterface
+class BootstrapRouter extends Router
 {
-    
     /**
      * Register the routes.
      */
@@ -29,5 +28,4 @@ class BootstrapRouter extends BaseRouter implements RouterInterface
         // route group.
         $this->router->pattern('domain', '[a-z0-9.]+');
     }
-    
 }
