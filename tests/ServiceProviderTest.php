@@ -2,13 +2,11 @@
 
 namespace SebastiaanLuca\Router\Tests;
 
-use Illuminate\Contracts\Http\Kernel as AppKernel;
 use SebastiaanLuca\Router\Kernel;
 use SebastiaanLuca\Router\RouterServiceProvider;
 
 class ServiceProviderTest extends TestCase
 {
-    
     public function testItInstantiatesAllUserKernelRouters()
     {
         // The kernel routers
@@ -40,5 +38,4 @@ class ServiceProviderTest extends TestCase
         
         $serviceProvider->registerUserRouters();
     }
-    
 }

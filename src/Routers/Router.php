@@ -13,7 +13,6 @@ use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
  */
 abstract class Router
 {
-    
     /**
      * The routing instance.
      *
@@ -49,8 +48,6 @@ abstract class Router
         $this->map();
     }
     
-    
-    
     /**
      * Assign the API router if the Dingo API package is installed.
      */
@@ -60,8 +57,6 @@ abstract class Router
             $this->api = app('\Dingo\Api\Routing\Router');
         }
     }
-    
-    
     
     /**
      * Get the default namespace with the suffix attached.
@@ -79,11 +74,8 @@ abstract class Router
         return $this->namespace . '\\' . $suffix;
     }
     
-    
-    
     /**
      * Map the routes.
      */
     public abstract function map();
-    
 }

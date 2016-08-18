@@ -11,7 +11,6 @@ namespace SebastiaanLuca\Router\EventHandlers;
  */
 class RegisterRouteMiddleware
 {
-    
     /**
      * Handle the event.
      */
@@ -19,5 +18,4 @@ class RegisterRouteMiddleware
     {
         app('router')->linkNamedRouteMiddleware();
     }
-    
 }

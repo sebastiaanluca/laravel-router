@@ -9,7 +9,6 @@ use SebastiaanLuca\Router\Routers\BootstrapRouter;
 
 class RouterServiceProvider extends RouteServiceProvider
 {
-    
     /**
      * Get the application's kernel implementation.
      *
@@ -44,8 +43,6 @@ class RouterServiceProvider extends RouteServiceProvider
         }
     }
     
-    
-    
     /**
      * Register the service provider.
      */
@@ -73,5 +70,4 @@ class RouterServiceProvider extends RouteServiceProvider
         // Map user-defined routers
         $this->registerUserRouters();
     }
-    
 }

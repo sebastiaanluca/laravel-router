@@ -10,7 +10,6 @@ use SebastiaanLuca\Router\RouterServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
-    
     use MockeryPHPUnitIntegration;
     
     /**
@@ -95,5 +94,4 @@ class TestCase extends OrchestraTestCase
         
         return $property;
     }
-    
 }

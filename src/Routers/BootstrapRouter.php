@@ -11,7 +11,6 @@ namespace SebastiaanLuca\Router\Routers;
  */
 class BootstrapRouter extends Router
 {
-    
     /**
      * Register the routes.
      */
@@ -29,5 +28,4 @@ class BootstrapRouter extends Router
         // route group.
         $this->router->pattern('domain', '[a-z0-9.]+');
     }
-    
 }

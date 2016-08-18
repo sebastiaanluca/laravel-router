@@ -2,14 +2,10 @@
 
 namespace SebastiaanLuca\Router\Tests;
 
-use Illuminate\Container\Container;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Foundation\Bootstrap\BootProviders;
 use SebastiaanLuca\Router\ExtendedRouter;
 
 class ExtendedRouterTest extends TestCase
 {
-    
     /**
      * Create a new router.
      *
@@ -28,8 +24,6 @@ class ExtendedRouterTest extends TestCase
         return $router->shouldAllowMockingProtectedMethods();
     }
     
-    
-    
     public function testDefaultRouterGotSwappedWithExtendedRouter()
     {
         $this->assertInstanceOf(ExtendedRouter::class, app('router'));
@@ -39,8 +33,6 @@ class ExtendedRouterTest extends TestCase
     {
         $this->assertInstanceOf(ExtendedRouter::class, \Route::getFacadeRoot());
     }
-    
-    
     
     public function testItAddsMiddlewareToANamedRoute()
     {
@@ -110,8 +102,6 @@ class ExtendedRouterTest extends TestCase
         
         $router->addMiddlewareToRoute('route.*', ['middlewareA', 'middlewareB']);
     }
-    
-    
     
     public function testItRegistersMiddleware()
     {
@@ -187,8 +177,6 @@ class ExtendedRouterTest extends TestCase
         $router->registerNamedRouteMiddleware('mockedRoute', ['middlewareA', 'middlewareA', 'middlewareB', 'middlewareB', 'middlewareB', 'middlewareB', 'middlewareC']);
     }
     
-    
-    
     /**
      * After bootstrapping the service providers, the registered (but not yet applied) middleware
      * should be added to the corresponding routes.
@@ -207,5 +195,4 @@ class ExtendedRouterTest extends TestCase
         
         $router->linkNamedRouteMiddleware();
     }
-    
 }

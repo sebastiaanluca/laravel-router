@@ -7,7 +7,6 @@ use SebastiaanLuca\Router\Tests\TestCase;
 
 class RouterTest extends TestCase
 {
-    
     /**
      * Create a new router.
      *
@@ -21,8 +20,6 @@ class RouterTest extends TestCase
             null => null,
         ])->makePartial();
     }
-    
-    
     
     public function testItCallsMapOnInitialization()
     {
@@ -55,5 +52,4 @@ class RouterTest extends TestCase
         
         $this->assertEquals('App\\Http\\Routers\\Sub', $namespace);
     }
-    
 }

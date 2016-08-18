@@ -12,6 +12,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Changed
 - Renamed `BaseRouter` to `Router`
 - Renamed router test accordingly
+- Uniform formatting
 
 ### Removed
 - Removed the `Router` interface

@@ -7,7 +7,6 @@ use SebastiaanLuca\Router\Tests\TestCase;
 
 class BootstrapRouterTest extends TestCase
 {
-    
     /**
      * @return \Illuminate\Foundation\Application|mixed
      */
@@ -25,8 +24,6 @@ class BootstrapRouterTest extends TestCase
         
         return app('router')->getPatterns();
     }
-    
-    
     
     public function testItMapsTheIdRoutePattern()
     {
@@ -52,5 +49,4 @@ class BootstrapRouterTest extends TestCase
     {
         $this->assertArrayHasKey('domain', $this->setUpAndGetRoutePatterns());
     }
-    
 }
