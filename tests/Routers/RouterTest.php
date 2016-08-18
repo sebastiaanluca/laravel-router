@@ -5,7 +5,7 @@ namespace SebastiaanLuca\Router\Tests\Routers;
 use SebastiaanLuca\Router\Routers\Router;
 use SebastiaanLuca\Router\Tests\TestCase;
 
-class BaseRouterTest extends TestCase
+class RouterTest extends TestCase
 {
     
     /**
