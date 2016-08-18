@@ -13,6 +13,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Renamed `BaseRouter` to `Router`
 - Renamed router test accordingly
 - Uniform formatting
+- Lock minimum Laravel version at 5.1
 
 ### Removed
 - Removed the `Router` interface
