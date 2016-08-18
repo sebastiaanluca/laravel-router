@@ -51,12 +51,10 @@ __Remember__ that using this packages *changes nothing* to the way you define yo
 
 namespace App\Http\Routers;
 
-use SebastiaanLuca\Router\Routers\BaseRouter;
-use SebastiaanLuca\Router\Routers\RouterInterface;
+use SebastiaanLuca\Router\Routers\Router;
 
-class PublicRouter extends BaseRouter implements RouterInterface
+class PublicRouter extends Router
 {
-    
     /**
      * Map the routes.
      */
@@ -70,7 +68,6 @@ class PublicRouter extends BaseRouter implements RouterInterface
             
         });
     }
-    
 }
 ```
 
@@ -98,7 +95,6 @@ app(PublicRouter::class);
 Example using a predefined namespace:
 
 ``` php
-    
 /**
  * The default controller namespace.
  *
