@@ -8,6 +8,11 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ...
 
+## v2.0.3 (2016-08-18)
+
+### Fixed
+- Used correct Laravel 5.3 and package dependencies
+
 ## v2.0.0 (2016-08-18)
 
 ### Added
