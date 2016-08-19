@@ -6,7 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
-...
+### Added
+- Added token route pattern
 
 ## v2.0.4 (2016-08-18)
 
