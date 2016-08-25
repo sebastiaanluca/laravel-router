@@ -6,7 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
-...
+### Changed
+- Locked down composer package constraints more vigorously
 
 ## v2.0.4 (2016-08-18)
 
