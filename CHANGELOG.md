@@ -9,6 +9,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Changed
 - Locked down composer package constraints more vigorously
 
+### Added
+- Added token route pattern
+
 ## v2.0.4 (2016-08-18)
 
 ### Changed
