@@ -21,7 +21,7 @@ class BootstrapRouter extends Router
         $this->router->pattern('hash', '[a-z0-9]+');
         $this->router->pattern('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
         $this->router->pattern('slug', '[a-z0-9-]+');
-        $this->router->pattern('token', '[a-z0-9]{100}');
+        $this->router->pattern('token', '[a-zA-Z0-9]{100}');
         
         // Allow full domain routing by including dots in the domain regex pattern. Same
         // use-case as subdomains, only this enables you to handle i.e. www.site1.com
