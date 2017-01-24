@@ -19,16 +19,11 @@
         }
     ],
     "require": {
-        "php": "^5.6.4|^7.0",
-        "laravel/framework": "~5.3.0",
-        "illuminate/support": "~5.3.0",
-        "illuminate/container": "~5.3.0",
-        "illuminate/contracts": "~5.3.0",
-        "illuminate/routing": "~5.3.0",
-        "illuminate/events": "~5.3.0"
+        "php": "^7.0",
+        "laravel/framework": "5.3.*|5.4.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.4",
+        "phpunit/phpunit": "~4.0|^5.7.6",
         "mockery/mockery": "^0.9",
         "orchestra/testbench": "^3.3"
     },
@@ -51,9 +46,6 @@
         }
     },
     "config": {
-        "preferred-install": "dist",
         "sort-packages": true
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
 }
