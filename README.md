@@ -14,7 +14,7 @@ The intended use is to organize your routes into **routers** based on functional
 
 ## Version
 
-Version 2 is targeted for use within a Laravel 5.3 application. If you're looking for a version for 5.1 or 5.2, have a look at v1.
+Version 2 is targeted for use within a Laravel 5.3+ application. If you're looking for a version for 5.1 or 5.2, have a look at v1.
 
 ## Install
 
