@@ -1,12 +1,16 @@
 # Changelog
 
-All Notable changes to `laravel-router` will be documented in this file.
+All notable changes to `laravel-router` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
 ## Unreleased
 
-...
+### Changed
+- Locked down composer package constraints more vigorously
+
+### Added
+- Added token route pattern
 
 ## v2.0.4 (2016-08-18)
 

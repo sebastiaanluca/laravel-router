@@ -14,23 +14,18 @@
         {
             "name": "Sebastiaan Luca",
             "email": "hello@sebastiaanluca.com",
-            "homepage": "http://www.sebastiaanluca.com",
+            "homepage": "https://www.sebastiaanluca.com",
             "role": "author"
         }
     ],
     "require": {
-        "php": "^5.6.4|^7.0",
-        "laravel/framework": "~5.3.0",
-        "illuminate/support": "~5.3",
-        "illuminate/container": "~5.3",
-        "illuminate/contracts": "~5.3",
-        "illuminate/routing": "~5.3",
-        "illuminate/events": "~5.3"
+        "php": "^7.0",
+        "laravel/framework": "5.3.*|5.4.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.4",
-        "mockery/mockery": "^0.9.4",
-        "orchestra/testbench": "~3.3.0"
+        "phpunit/phpunit": "~4.0|^5.7.6",
+        "mockery/mockery": "^0.9",
+        "orchestra/testbench": "^3.3"
     },
     "autoload": {
         "psr-4": {
@@ -45,10 +40,12 @@
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0-dev"
+        }
+    },
     "config": {
-        "preferred-install": "dist",
         "sort-packages": true
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
 }
