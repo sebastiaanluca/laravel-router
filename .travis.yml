@@ -9,9 +9,6 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-matrix:
-  fast_finish: true
-
 env:
   matrix:
     - LARAVEL_VERSION="5.1.*"
@@ -19,6 +16,11 @@ env:
     - LARAVEL_VERSION="5.3.*"
     - LARAVEL_VERSION="5.4.*"
     - LARAVEL_VERSION="dev-master"
+
+matrix:
+  allow_failures:
+    - env: LARAVEL_VERSION="dev-master"
+  fast_finish: true
 
 before_install:
   - travis_retry composer self-update
