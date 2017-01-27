@@ -7,16 +7,17 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-matrix:
-- LARAVEL_VERSION="5.4.*" COMPOSER_FLAGS="--prefer-lowest"
-- LARAVEL_VERSION="5.4.*" COMPOSER_FLAGS=""
+env:
+  matrix:
+    - LARAVEL_VERSION="5.1.*"
+    - LARAVEL_VERSION="5.4.*"
 
 before_install:
   - travis_retry composer self-update
+  - composer require laravel/framework=${LARAVEL_VERSION} --no-update
 
 install:
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
-  - travis_retry composer require laravel-framework:${LARAVEL_VERSION} --no-update
+  - travis_retry composer update --no-interaction --prefer-dist
 
 script:
   - vendor/bin/phpunit
@@ -28,6 +29,6 @@ branches:
     - feature/testing/refactor-tests
 
 notifications:
-    email:
-        on_failure: change
-        on_success: never
+  email:
+    on_failure: change
+    on_success: never
