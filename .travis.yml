@@ -9,6 +9,9 @@ cache:
   directories:
     - $HOME/.composer/cache
 
+matrix:
+  fast_finish: true
+
 env:
   matrix:
     - LARAVEL_VERSION="5.1.*"
