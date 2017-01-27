@@ -2,25 +2,33 @@ language: php
 
 php:
   - 7.0
-  - 7.1
-  
+
 sudo: false
 
 cache:
   directories:
     - $HOME/.composer/cache
-    
-env:
-  matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
+
+matrix:
+- LARAVEL_VERSION="5.4.*" COMPOSER_FLAGS="--prefer-lowest"
+- LARAVEL_VERSION="5.4.*" COMPOSER_FLAGS=""
 
 before_install:
   - travis_retry composer self-update
 
 install:
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
-  
+  - travis_retry composer update ${COMPOSER_FLAGS} --dev --no-interaction --prefer-dist
+  - travis_retry composer require laravel-framework:${LARAVEL_VERSION} --no-update
+
+script:
+  - vendor/bin/phpunit
+
+branches:
+  only:
+    - master
+    - develop
+    - testing/refactor-tests
+
 notifications:
     email:
         on_failure: change
