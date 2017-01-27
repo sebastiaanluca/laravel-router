@@ -11,8 +11,6 @@ cache:
 
 env:
   matrix:
-    - LARAVEL_VERSION="5.1.*"
-    - LARAVEL_VERSION="5.2.*"
     - LARAVEL_VERSION="5.3.*"
     - LARAVEL_VERSION="5.4.*"
     - LARAVEL_VERSION="dev-master"
