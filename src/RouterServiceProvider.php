@@ -18,7 +18,7 @@ class RouterServiceProvider extends RouteServiceProvider
     {
         return app(AppKernel::class);
     }
-    
+
     /**
      * Map user-defined routers.
      */
@@ -28,21 +28,21 @@ class RouterServiceProvider extends RouteServiceProvider
         // HTTP kernel as it is bound in bootstrap/app.php to the actual
         // implementation. Still need to check if it's the package's
         // custom kernel though as that is an optional setup choice.
-        
+
         $kernel = $this->getApplicationKernel();
-        
+
         if (! $kernel instanceof Kernel) {
             return;
         }
-        
+
         $routers = $kernel->getRouters();
-        
-        // Just instantiate each router as they handle the mapping itself
+
+        // Just instantiate each router as they handle the mapping themselves
         foreach ($routers as $router) {
             $this->app->make($router);
         }
     }
-    
+
     /**
      * Register the service provider.
      */
@@ -52,11 +52,11 @@ class RouterServiceProvider extends RouteServiceProvider
         $this->app->singleton(ExtendedRouter::class, function ($app) {
             return new ExtendedRouter($app['events'], $app);
         });
-        
+
         // Swap the default router with our extended router
         $this->app->alias(ExtendedRouter::class, 'router');
     }
-    
+
     /**
      * Define your route model bindings, pattern filters, etc using the Bootstrap router.
      */
@@ -64,7 +64,7 @@ class RouterServiceProvider extends RouteServiceProvider
     {
         // Create a router that defines route patterns and whatnot
         $this->app->make(BootstrapRouter::class);
-        
+
         // Map user-defined routers
         $this->registerUserRouters();
     }
