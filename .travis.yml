@@ -27,7 +27,7 @@ branches:
   only:
     - master
     - develop
-    - testing/refactor-tests
+    - feature/testing/refactor-tests
 
 notifications:
     email:
