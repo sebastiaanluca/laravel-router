@@ -15,7 +15,7 @@ before_install:
   - travis_retry composer self-update
 
 install:
-  - travis_retry composer update ${COMPOSER_FLAGS} --dev --no-interaction --prefer-dist
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
   - travis_retry composer require laravel-framework:${LARAVEL_VERSION} --no-update
 
 script:
