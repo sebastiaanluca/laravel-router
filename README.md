@@ -12,7 +12,26 @@ __An organized approach to handling routes in Laravel and Lumen.__ It also provi
 
 So instead of those bulky `web.php` and `api.php` route files that are often too big, lacking any structure, and break Laravel structure conventions of separating everything in classes instead of regular PHP files, this package provides you with an easy-to-use system to separate route logic into __routers__ based on functionality.
 
-## Version
+## Table of contents
+
+* [Laravel version](#laravel-version)
+* [How to install](#how-to-install)
+* [Usage](#usage)
+    + [Setting up a router](#setting-up-a-router)
+    + [Common route parameter patterns](#common-route-parameter-patterns)
+    + [Full-domain routing](#full-domain-routing)
+    + [Applying middleware using route names](#applying-middleware-using-route-names)
+* [Change log](#change-log)
+* [Testing](#testing)
+* [Contributing](#contributing)
+* [Security](#security)
+* [Credits](#credits)
+* [About](#about)
+* [License](#license)
+
+Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io/markdown-toc/).
+
+## Laravel version
 
 Version 2 is targeted for use within a Laravel 5.3+ application. If you're looking for a version for 5.1 or 5.2, have a look at v1.
 
