@@ -41,7 +41,7 @@ class RouterTest extends TestCase
      *
      * @return \SebastiaanLuca\Router\Routers\Router
      */
-    protected function createRouter(?Registrar $registrar = null) : Router
+    protected function createRouter($registrar = null) : Router
     {
         if (! $registrar) {
             $registrar = app(Registrar::class);
