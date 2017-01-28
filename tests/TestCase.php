@@ -25,7 +25,7 @@ class TestCase extends OrchestraTestCase
     }
 
     /**
-     * Mock a class and optionally bind it in the IoC container.
+     * Mock a class and bind it in the IoC container.
      *
      * @param string $class
      * @param mixed $parameters
