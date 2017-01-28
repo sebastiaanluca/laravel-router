@@ -8,97 +8,101 @@
 [![Share this package on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
 [![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=Check%20out%20this%20nifty%20way%20of%20organizing%20your%20%23Laravel%20routes!%20https%3A//github.com/sebastiaanluca/laravel-router%20via%20%40sebastiaanluca)
 
-__An organized approach to handling routes in Laravel and Lumen.__ Also provides additional functionality on top of the default HTTP router.
+__An organized approach to handling routes in Laravel and Lumen.__ It also provides additional functionality on top of the default HTTP router.
 
-The intended use is to organize your routes into **routers** based on functionality. For instance admin, public, and user routes are separated into different classes instead of one long `routes.php` file or scattered throughout different PHP files.
+So instead of those bulky `web.php` and `api.php` route files that are often too big, lacking any structure, and break Laravel structure conventions of separating everything in classes instead of regular PHP files, this package provides you with an easy-to-use system to separate route logic into __routers__ based on functionality.
 
 ## Version
 
 Version 2 is targeted for use within a Laravel 5.3+ application. If you're looking for a version for 5.1 or 5.2, have a look at v1.
 
-## Install
+## How to install
 
 Install the package through Composer by using the following command:
 
-``` bash
+```bash
 composer require sebastiaanluca/laravel-router
 ```
 
 Add the service provider to the `providers` array in your `config/app.php` file:
 
-``` php
+```php
 SebastiaanLuca\Router\RouterServiceProvider::class,
 ```
 
-Next, your application's HTTP kernel (usually found at `app\Http\Kernel` in your project) should extend the package's custom kernel instead of the default. So just replace `use Illuminate\Foundation\Http\Kernel as HttpKernel;` at the top of the class with the following line:
+This will allow you to structure your routes into __routers__ by simply extending the base class and instantiating your router (anywhere).
 
-``` php
+If you want to register your routers in a single place (the HTTP kernel) or add middleware to routes using wildcards and so on, your application's HTTP kernel (usually found at `App\Http\Kernel` in your project) should extend the package's custom kernel instead of the default.
+
+So just replace:
+
+```php
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+```
+
+at the top of the Kernel class with the following line:
+
+```php
 use SebastiaanLuca\Router\Kernel as HttpKernel;
 ```
 
-### Development package
-
-Please specify a fixed version in your `composer.json` file when using this package in your project. This is still a work-in-progress and has no version 1.0 yet, which means it can change drastically throughout development.
-
 ## Usage
 
-### Setting up routers
+### Setting up a router
 
-To get started, you have to create at least one router that will contain some routes. The following is an example of such a router. It can be placed anywhere you like, though I'd suggest grouping them under `App\Http\Routers`.
+The following is an example of a router. It can be placed anywhere you like, though I'd suggest grouping them under `App\Http\Routers`.
 
-The `map` method is where you should define your routes and is the *only* requirement when using a router. The Laravel routing instance is automatically resolved from the IoC container, so you can use any standard routing functionality you want with the additional functionality this package provides (see further down).
-
-__Remember__ that using this packages *changes nothing* to the way you define your routes. It's just a way of organizing them. Optionally you can use the additional functionality it provides, but that's not a requirement.
-
-``` php
+```php
 <?php
 
-namespace App\Http\Routers;
+namespace App\Http\Routers\Users;
 
 use SebastiaanLuca\Router\Routers\Router;
 
-class PublicRouter extends Router
+class AuthRouter extends Router
 {
     /**
      * Map the routes.
      */
     public function map()
     {
-        $this->router->group(['middleware' => ['web']], function () {
-        
-            $this->router->get('/', function () {
-                return view('welcome');
+        $this->router->group(['middleware' => ['web', 'guest'], function () {
+            $this->router->get('/users', function () {
+                return view('users.welcome');
             });
-            
         });
     }
 }
 ```
 
-To automatically have the package load your router and map its routes, add it to the `$routers` array in your application's kernel class (which should extend `SebastiaanLuca\Router\Kernel`):
+The `map` method is where you should define your routes and is the *only* requirement when using a router. The Laravel routing instance is automatically resolved from the IoC container, so you can use any standard routing functionality you want with the additional functionality this package provides (see further down). Of course you can also use the `Route` facade.
 
-``` php
+__Remember__ that using this packages changes _nothing_ to the way you define your routes. It's just a way of organizing them. Optionally you can use the additional functionality it provides, but that's not a requirement.
+
+To automatically have the package load your router and map its routes, add it to the `$routers` array in your application's kernel class:
+
+```php
 /**
  * The routers to automatically map.
  *
  * @var array
  */
 protected $routers = [
-    PublicRouter::class,
+    \App\Http\Routers\Users\UserRouter::class,
 ];
 ```
 
-If you're not using the custom kernel, you can also register the router manually by just instantiating it. This can be useful when making use of it in another package.
+If you're not using the custom kernel, you can also register the router manually by just instantiating it (in a service provider for instance). The parent base router will automatically resolve all dependencies and call the `map` method on your router. Works great in packages!
 
-``` php
-app(PublicRouter::class);
+```php
+app(\App\Http\Routers\Users\UserRouter::class);
 ```
 
-**Optionally**, you can define a namespace per router and use it with `$this->getNamespace()` in your mapping. Feel free to delete this local variable if you favor using something like `'uses' => PublicController::class . '@index'` which i.e. PHPStorm can detect when refactoring.
+**Optionally**, you can define a namespace (variable) in your router and use it in your mapping. Feel free to delete this local variable if you favor writing the class name yourself.
 
 Example using a predefined namespace:
 
-``` php
+```php
 /**
  * The default controller namespace.
  *
@@ -119,9 +123,9 @@ public function map()
 }
 ```
 
-Example using the class (name) itself (personal preference):
+Example using the class (name) itself (personal preference); which PHPStorm for instance can automatically detect when refactoring:
 
-``` php
+```php
 /**
  * Map the routes.
  */
@@ -137,30 +141,17 @@ public function map()
 
 ### Common route parameter patterns
 
-Laravel provides a convenient way to validate URL parameters using [patterns](https://laravel.com/docs/5.1/routing#route-parameters) in routes:
+Laravel provides a convenient way to validate URL parameters using [patterns](https://laravel.com/docs/5.1/routing#route-parameters) in routes. This package provides a predefined set of such patterns so you don't have to repeatedly add them to each route or define them yourself. The following parameter patterns are currently supported:
 
-``` php
-Route::get('user/{id}/{name}', function ($id, $name) {
-    //
-})->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
-```
-
-Such pattern can also be globally defined in a service provider, for instance for an ID:
-
-```php
-Route::pattern('id', '[0-9]+');
-```
-
-This package provides a predefined set of such patterns so you don't have to repeatedly add them to each route or define them yourself. The following parameter patterns are currently supported:
-
-- id
-- hash
-- uuid
-- slug
+- id (`\d+`)
+- hash (`[a-z0-9]+`)
+- uuid (`[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})
+- slug (`[a-z0-9-]+`)
+- token (`[a-zA-Z0-9]{100}`)
 
 Forget about writing:
 
-``` php
+```php
 Route::get('user/activations/{uuid}', function ($uuid) {
     //
 })->where('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
@@ -168,7 +159,7 @@ Route::get('user/activations/{uuid}', function ($uuid) {
 
 Just use the `{uuid}` or any other pattern in your route:
 
-``` php
+```php
 $this->router->get('user/activations/{uuid}', function ($uuid) {
     //
 });
@@ -181,7 +172,7 @@ Another great feature of Laravel is [sub-domain routing](https://laravel.com/doc
 
 Simply define a route group with the `{domain}` pattern and use it in your callback or controller:
 
-``` php
+```php
 $this->router->group(['domain' => '{domain}'], function () {
 
     $this->router->get('user/{id}', function ($domain, $id) {
@@ -199,40 +190,32 @@ Laravel Router allows you to use a variation on that by applying middleware to a
 
 A very basic example to apply middleware to a single route:
 
-``` php
+```php
 $this->router->registerNamedRouteMiddleware('admin.users.index', AdminMiddleware::class);
 ```
 
 Apply middleware to a bunch of routes using a wildcard
 
-``` php
+```php
 $this->router->registerNamedRouteMiddleware('admin.users.*', AdminMiddleware::class);
 ```
 
 Handle multiple routes at once, even with wildcards:
 
-``` php
+```php
 $this->router->registerNamedRouteMiddleware(['admin.users.index', 'admin.users.edit', 'admin.items.*', 'front.auth.*', 'front.index'], YourMiddleware::class);
 ```
 
 Assign multiple middleware:
 
-``` php
+```php
 $this->router->registerNamedRouteMiddleware('front.*', [DomainMiddleware::class, AuthMiddleware::class, OtherMiddleware::class]);
 ```
 
 A combination of all:
 
-``` php
+```php
 $this->router->registerNamedRouteMiddleware(['admin.users.index', 'admin.users.edit', 'admin.items.*', 'front.auth.*', 'front.index'], [DomainMiddleware::class, AuthMiddleware::class, OtherMiddleware::class]);
-```
-
-### Notes
-
-In addition to using `$this->router` in your routers, you can also use the traditional `Route` facade anywhere in your application and still benefit from the extra functionality such as wildcard middleware and predefined route patterns.
-
-``` php
-Route::registerNamedRouteMiddleware('admin.users.*', AdminContextMiddleware::class);
 ```
 
 ## Change log
