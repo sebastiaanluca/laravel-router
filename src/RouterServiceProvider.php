@@ -4,11 +4,36 @@ namespace SebastiaanLuca\Router;
 
 use Illuminate\Contracts\Http\Kernel as AppKernel;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
-use Illuminate\Routing\Router;
 use SebastiaanLuca\Router\Routers\BootstrapRouter;
 
 class RouterServiceProvider extends RouteServiceProvider
 {
+    /**
+     * Register the service provider.
+     */
+    public function register()
+    {
+        // Define our router extension
+        $this->app->singleton(ExtendedRouter::class, function ($app) {
+            return new ExtendedRouter($app['events'], $app);
+        });
+
+        // Swap the default router with our extended router
+        $this->app->alias(ExtendedRouter::class, 'router');
+    }
+
+    /**
+     * Define your route model bindings, pattern filters, etc using the Bootstrap router.
+     */
+    public function boot()
+    {
+        // Create a router that defines route patterns and whatnot
+        $this->app->make(BootstrapRouter::class);
+
+        // Map user-defined routers
+        $this->registerUserRouters();
+    }
+
     /**
      * Get the application's kernel implementation.
      *
@@ -41,31 +66,5 @@ class RouterServiceProvider extends RouteServiceProvider
         foreach ($routers as $router) {
             $this->app->make($router);
         }
-    }
-
-    /**
-     * Register the service provider.
-     */
-    public function register()
-    {
-        // Define our router extension
-        $this->app->singleton(ExtendedRouter::class, function ($app) {
-            return new ExtendedRouter($app['events'], $app);
-        });
-
-        // Swap the default router with our extended router
-        $this->app->alias(ExtendedRouter::class, 'router');
-    }
-
-    /**
-     * Define your route model bindings, pattern filters, etc using the Bootstrap router.
-     */
-    public function boot()
-    {
-        // Create a router that defines route patterns and whatnot
-        $this->app->make(BootstrapRouter::class);
-
-        // Map user-defined routers
-        $this->registerUserRouters();
     }
 }
