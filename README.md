@@ -35,6 +35,8 @@ Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io
 
 Version 2 is targeted for use within a Laravel 5.3+ application. If you're looking for a version for 5.1 or 5.2, have a look at v1.
 
+This package also requires at least PHP 7.0. Support for older versions can be found in previous package releases.
+
 ## How to install
 
 Install the package through Composer by using the following command:
