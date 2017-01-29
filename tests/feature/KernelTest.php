@@ -1,6 +1,6 @@
 <?php
 
-namespace SebastiaanLuca\Router\Tests\Unit;
+namespace SebastiaanLuca\Router\Tests\Feature;
 
 use Illuminate\Contracts\Http\Kernel as AppKernel;
 use SebastiaanLuca\Router\Kernel as PackageKernel;
