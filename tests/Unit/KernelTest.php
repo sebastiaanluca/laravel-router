@@ -15,12 +15,11 @@ class KernelTest extends TestCase
         // the router that was registered (as a string) in the
         // HTTP kernel.
         app()->bind('MyTestRouter', function () {
-            // Assert that the router has been created (i.e.
-            // the closure was resolved by the application)
             $this->assertTrue(true);
         });
 
         // Bind our test kernel as the application's active HTTP kernel
+        // similar as app/boostrap.php does
         app()->singleton(AppKernel::class, get_class($this->createKernel()));
 
         // Go through the flow of getting the registered routers
