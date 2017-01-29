@@ -55,13 +55,13 @@ This will allow you to structure your routes into __routers__ by simply extendin
 
 If you want to register your routers in a single place (the HTTP kernel) or add middleware to routes using wildcards and so on, your application's HTTP kernel (usually found at `App\Http\Kernel` in your project) should extend the package's custom kernel instead of the default.
 
-So just replace:
+So just replace (at the top of the Kernel class):
 
 ```php
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 ```
 
-at the top of the Kernel class with the following line:
+with the following line:
 
 ```php
 use SebastiaanLuca\Router\Kernel as HttpKernel;
@@ -88,9 +88,13 @@ class AuthRouter extends Router
     public function map()
     {
         $this->router->group(['middleware' => ['web', 'guest'], function () {
+        
             $this->router->get('/users', function () {
+            
                 return view('users.welcome');
+                
             });
+            
         });
     }
 }
