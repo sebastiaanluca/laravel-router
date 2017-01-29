@@ -4,6 +4,7 @@ namespace SebastiaanLuca\Router\Tests;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Mockery\MockInterface;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use ReflectionClass;
 use SebastiaanLuca\Router\RouterServiceProvider;
@@ -19,7 +20,7 @@ class TestCase extends OrchestraTestCase
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app) : array
     {
         return [RouterServiceProvider::class];
     }
@@ -30,9 +31,9 @@ class TestCase extends OrchestraTestCase
      * @param string $class
      * @param mixed $parameters
      *
-     * @return \Mockery\MockInterface
+     * @return \Mockery\MockInterface|$class
      */
-    protected function mock($class, $parameters = [])
+    protected function mock($class, $parameters = []) : MockInterface
     {
         $mock = Mockery::mock($class, $parameters);
 
