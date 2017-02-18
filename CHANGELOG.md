@@ -4,12 +4,12 @@ All notable changes to `laravel-router` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## Unreleased
+## Unreleased (3.0.0)
 
 ### Changed
 
 - Partially rewritten readme
-- Refactored tests and test environment
+- Added and refactored tests and test environment
 
 ## v2.1.2 (2017-01-24)
 
