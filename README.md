@@ -31,7 +31,7 @@ A replacement for those bulky `web.php` and `api.php` route files that are often
 
 Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io/markdown-toc/).
 
-## Laravel version
+## Requirements
 
 - PHP 7 or higher
 - Laravel 5.3 or higher
@@ -56,13 +56,13 @@ This will allow you to structure your routes into __routers__ by simply extendin
 
 If you want to register your routers in a single place (the HTTP kernel) or add middleware to routes using wildcards and so on, your application's HTTP kernel (usually found at `App\Http\Kernel` in your project) should extend the package's custom kernel instead of the default.
 
-So just replace (at the top of the Kernel class):
+To enable this, replace the following line (at the top of the Kernel class):
 
 ```php
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 ```
 
-with the following line:
+with this:
 
 ```php
 use SebastiaanLuca\Router\Kernel as HttpKernel;
