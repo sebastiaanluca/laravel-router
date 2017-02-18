@@ -11,6 +11,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Partially rewritten readme
 - Added and refactored tests and test environment
 
+### Removed
+
+- Dropped support for Laravel 5.1 and 5.2
+
 ## v2.1.2 (2017-01-24)
 
 ### Changed
