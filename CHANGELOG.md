@@ -11,10 +11,6 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Partially rewritten readme
 - Refactored tests and test environment
 
-### Removed
-
-- Dropped Laravel 5.1 and 5.2 support
-
 ## v2.1.2 (2017-01-24)
 
 ### Changed
@@ -54,7 +50,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Changed
 
-- Updated Travis CI configuration to reflect Laravel 5.3 changes and added PHP 7.1 support 
+- Updated Travis CI configuration to reflect Laravel 5.3 changes and added PHP 7.1 support
 
 ## v2.0.3 (2016-08-18)
 
