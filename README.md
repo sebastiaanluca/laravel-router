@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round)](LICENSE.md)
-[![Build Status](https://travis-ci.org/sebastiaanluca/laravel-router/master.svg?style=flat-round)](https://travis-ci.org/sebastiaanluca/laravel-router)
+[![Build Status](https://travis-ci.org/sebastiaanluca/laravel-router.svg?style=flat-round)](https://travis-ci.org/sebastiaanluca/laravel-router)
 [![Total Downloads](https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
 
 [![Share this package on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
