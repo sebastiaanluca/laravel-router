@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round)](LICENSE.md)
-[![Build Status](https://travis-ci.org/sebastiaanluca/laravel-router.svg?style=flat-round)](https://travis-ci.org/sebastiaanluca/laravel-router)
+[![Build Status](https://travis-ci.org/sebastiaanluca/laravel-router/master.svg?style=flat-round)](https://travis-ci.org/sebastiaanluca/laravel-router)
 [![Total Downloads](https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
 
 [![Share this package on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
@@ -14,7 +14,7 @@ So instead of those bulky `web.php` and `api.php` route files that are often too
 
 ## Table of contents
 
-* [Laravel version](#laravel-version)
+* [Requirements](#requirements)
 * [How to install](#how-to-install)
 * [Usage](#usage)
     + [Setting up a router](#setting-up-a-router)
@@ -33,9 +33,9 @@ Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io
 
 ## Laravel version
 
-Version 2 is targeted for use within a Laravel 5.3+ application. If you're looking for a version for 5.1 or 5.2, have a look at v1.
-
-This package also requires at least PHP 7.0. Support for older versions can be found in previous package releases.
+- PHP 7 or higher
+- Laravel 5.3 or higher
+    - Version 2 is targeted for use within a Laravel 5.3+ application. If you're looking for a version for 5.1 or 5.2, have a look at version 1.
 
 ## How to install
 
@@ -249,7 +249,10 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-Run `composer test` or `vendor/bin/phpunit`.
+``` bash
+composer install
+composer test
+```
 
 ## Contributing
 
@@ -266,7 +269,7 @@ If you discover any security related issues, please email [hello@sebastiaanluca.
 
 ## About
 
-My name is Sebastiaan and I'm a freelance back-end developer from Belgium specializing in building high-end, custom Laravel applications. Check out my [portfolio][author-portfolio] for more information and my other [packages](https://github.com/sebastiaanluca?tab=repositories) to kick-start your next project. Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][author-email]!
+My name is Sebastiaan and I'm a freelance back-end developer specializing in building high-end, custom Laravel applications. Check out my [portfolio][author-portfolio] for more information and my other [packages](https://github.com/sebastiaanluca?tab=repositories) to kick-start your next project. Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][author-email]!
 
 ## License
 
