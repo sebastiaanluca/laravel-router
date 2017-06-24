@@ -1,7 +1,7 @@
 {
     "name": "sebastiaanluca/laravel-router",
+    "description": "An organized approach to handling Laravel routes.",
     "type": "library",
-    "description": "An organized approach to handling Laravel routes. Provides additional functionality on top of the default HTTP router.",
     "keywords": [
         "laravel",
         "route",
