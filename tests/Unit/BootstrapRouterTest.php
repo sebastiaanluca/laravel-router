@@ -3,11 +3,12 @@
 namespace SebastiaanLuca\Router\Tests\Unit;
 
 use Illuminate\Contracts\Routing\Registrar;
-use SebastiaanLuca\Router\Routers\BootstrapRouter;
+use SebastiaanLuca\Router\Routers\RegisterRoutePatterns;
 use SebastiaanLuca\Router\Tests\TestCase;
 
 class BootstrapRouterTest extends TestCase
 {
+    // TODO: split
     public function testItMapsTheIdRoutePattern()
     {
         $registrar = $this->mock(Registrar::class);
@@ -25,10 +26,10 @@ class BootstrapRouterTest extends TestCase
     /**
      * @param \Illuminate\Contracts\Routing\Registrar $registrar
      *
-     * @return \SebastiaanLuca\Router\Routers\BootstrapRouter
+     * @return \SebastiaanLuca\Router\Routers\RegisterRoutePatterns
      */
-    protected function createBootstrapRouter(Registrar $registrar) : BootstrapRouter
+    protected function createBootstrapRouter(Registrar $registrar) : RegisterRoutePatterns
     {
-        return new BootstrapRouter($registrar);
+        return new RegisterRoutePatterns($registrar);
     }
 }

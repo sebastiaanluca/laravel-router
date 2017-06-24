@@ -28,14 +28,6 @@ class RouterTest extends TestCase
         $this->createRouter($registrar);
     }
 
-    public function testItSetsTheNamespace()
-    {
-        $router = $this->createRouter();
-
-        $this->assertEquals('App\\Http\\Controllers', $router->getNamespace());
-        $this->assertEquals('App\\Http\\Controllers\\Users\\Auth', $router->getNamespace('Users\\Auth'));
-    }
-
     /**
      * @param \Illuminate\Contracts\Routing\Registrar|null $registrar
      *
@@ -49,13 +41,6 @@ class RouterTest extends TestCase
 
         return new class($registrar) extends Router
         {
-            /**
-             * The default controller namespace.
-             *
-             * @var string
-             */
-            protected $namespace = 'App\\Http\\Controllers';
-
             /**
              * Map the routes.
              */

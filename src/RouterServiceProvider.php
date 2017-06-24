@@ -3,10 +3,10 @@
 namespace SebastiaanLuca\Router;
 
 use Illuminate\Contracts\Http\Kernel;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use Illuminate\Support\ServiceProvider;
 use SebastiaanLuca\Router\Kernel\RegistersRouters;
 
-class RouterServiceProvider extends RouteServiceProvider
+class RouterServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
