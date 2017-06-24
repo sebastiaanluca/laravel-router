@@ -8,7 +8,7 @@
 [![Share this package on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
 [![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=Check%20out%20this%20nifty%20way%20of%20organizing%20your%20%23Laravel%20routes!%20https%3A//github.com/sebastiaanluca/laravel-router%20via%20%40sebastiaanluca)
 
-__An organized approach to handling routes in Laravel and Lumen.__ This package provides you with an easy-to-use system to separate route logic into __routers__ based on functionality, while also providing additional functionality on top of the default HTTP router.
+__An organized approach to handling routes in Laravel and Lumen.__ This package provides you with an easy-to-use system to separate route logic into __routers__ based on functionality while also providing additional functionality.
 
 A replacement for those bulky `web.php` and `api.php` route files that are often lacking any structure and break Laravel structure conventions of separating everything in classes instead of regular PHP files.
 
@@ -34,9 +34,9 @@ Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io
 ## Requirements
 
 - PHP 7 or higher
-- Laravel 5.3 or higher
+- Laravel 5.4 or higher
 
-Version 2 is targeted for use within a Laravel 5.3+ application. If you're looking for a version for 5.1 or 5.2, have a look at version 1.
+Looking for support for PHP 5.x or Laravel 5.3 and earlier? Try out any of the previous package versions.
 
 ## How to install
 
