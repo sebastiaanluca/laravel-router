@@ -23,7 +23,7 @@ matrix:
 
 before_install:
   - travis_retry composer self-update
-  - if [[ ${MINIMUM_STABILITY} ]] && composer config minimum-stability dev && echo "Minimum stability set to ${MINIMUM_STABILITY}" || echo "Minimum stability left unchanged"
+  - if [[ -n ${MINIMUM_STABILITY} ]]; then echo "Minimum stability set to ${MINIMUM_STABILITY}"; else echo "Minimum stability left unchanged"; fi
   - composer require laravel/framework=${LARAVEL_VERSION} --no-update
   - composer require orchestra/testbench=${ORCHESTRA_VERSION} --dev --no-update
   - composer require phpunit/phpunit=${PHPUNIT_VERSION} --dev --no-update
