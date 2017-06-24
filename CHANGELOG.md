@@ -4,7 +4,7 @@ All notable changes to `laravel-router` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## Unreleased (3.0.0)
+## 3.0.0 (2017-06-24)
 
 ### Added
 
@@ -24,7 +24,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Removed namespace functionality (didn't add any real value)
 - Removed API router check in base router
 
-## v2.1.2 (2017-01-24)
+## 2.1.2 (2017-01-24)
 
 ### Changed
 
@@ -35,13 +35,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Fix orchestra/testbench for Laravel 5.4
 - Fix mockery package dependency
 
-## v2.1.1 (2017-01-24)
+## 2.1.1 (2017-01-24)
 
 ### Fixed
 
 - Invalid composer.json
 
-## v2.1.0 (2017-01-24)
+## 2.1.0 (2017-01-24)
 
 ### Added
 
@@ -59,19 +59,19 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - PHP 5.6 support
 
-## v2.0.4 (2016-08-18)
+## 2.0.4 (2016-08-18)
 
 ### Changed
 
 - Updated Travis CI configuration to reflect Laravel 5.3 changes and added PHP 7.1 support
 
-## v2.0.3 (2016-08-18)
+## 2.0.3 (2016-08-18)
 
 ### Fixed
 
 - Used correct Laravel 5.3 and package dependencies
 
-## v2.0.0 (2016-08-18)
+## 2.0.0 (2016-08-18)
 
 ### Added
 
