@@ -153,7 +153,7 @@ Especially useful in packages!
 
 ## Optional features
 
-To use the following optional features, add the `RegisterRoutePatterns` class to your routers:
+To use the following optional features, register the `RegisterRoutePatterns` class:
 
 ```php
 <?php
