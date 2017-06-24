@@ -1,12 +1,13 @@
 {
     "name": "sebastiaanluca/laravel-router",
+    "description": "An organized approach to handling Laravel routes.",
     "type": "library",
-    "description": "An organized approach to handling Laravel routes. Provides additional functionality on top of the default HTTP router.",
     "keywords": [
-        "Laravel",
+        "laravel",
+        "route",
+        "routing",
         "router",
-        "laravel-router",
-        "http"
+        "laravel-router"
     ],
     "homepage": "https://github.com/sebastiaanluca/laravel-router",
     "license": "MIT",
@@ -15,22 +16,25 @@
             "name": "Sebastiaan Luca",
             "email": "hello@sebastiaanluca.com",
             "homepage": "https://www.sebastiaanluca.com",
-            "role": "author"
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.0",
-        "laravel/framework": "5.3.*|5.4.*"
+        "php": "^7",
+        "laravel/framework": "^5.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0|^5.7.6",
         "mockery/mockery": "^0.9.7",
-        "orchestra/testbench": "^3.3.4"
+        "orchestra/testbench": "3.3.*|^3.4.2",
+        "phpunit/phpunit": "^5.7|^6.2"
     },
     "autoload": {
         "psr-4": {
             "SebastiaanLuca\\Router\\": "src"
-        }
+        },
+        "files": [
+            "src/Helpers/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -40,15 +44,14 @@
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.0-dev"
-        }
-    },
     "config": {
-        "preferred-install": "dist",
         "sort-packages": true
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SebastiaanLuca\\Router\\RouterServiceProvider"
+            ]
+        }
+    }
 }

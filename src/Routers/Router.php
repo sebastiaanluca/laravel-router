@@ -2,12 +2,10 @@
 
 namespace SebastiaanLuca\Router\Routers;
 
-use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
+use Illuminate\Contracts\Routing\Registrar;
 
 /**
- * Class Router
- *
- * The base class every router should extend.
+ * The base class for routers.
  *
  * @package SebastiaanLuca\Router\Routers
  */
@@ -16,64 +14,22 @@ abstract class Router
     /**
      * The routing instance.
      *
-     * @var \SebastiaanLuca\Router\ExtendedRouter|\Illuminate\Routing\Router
+     * @var \Illuminate\Contracts\Routing\Registrar|\Illuminate\Routing\Router
      */
     protected $router;
-    
-    /**
-     * The Dingo API router.
-     *
-     * @var \Dingo\Api\Routing\Router
-     */
-    protected $api;
-    
-    /**
-     * The default controller namespace.
-     *
-     * @var string
-     */
-    protected $namespace = '';
-    
+
     /**
      * Router constructor.
      *
-     * @param \Illuminate\Contracts\Routing\Registrar $router
+     * @param \Illuminate\Contracts\Routing\Registrar|\Illuminate\Routing\Router $router
      */
-    public function __construct(RegistrarContract $router)
+    public function __construct(Registrar $router)
     {
         $this->router = $router;
-        
-        $this->setUpApiRouter();
-        
+
         $this->map();
     }
-    
-    /**
-     * Assign the API router if the Dingo API package is installed.
-     */
-    protected function setUpApiRouter()
-    {
-        if (class_exists('\Dingo\Api\Routing\Router')) {
-            $this->api = app('\Dingo\Api\Routing\Router');
-        }
-    }
-    
-    /**
-     * Get the default namespace with the suffix attached.
-     *
-     * @param string|null $suffix
-     *
-     * @return string
-     */
-    public function getNamespace($suffix = null)
-    {
-        if (! $suffix) {
-            return $this->namespace;
-        }
-        
-        return $this->namespace . '\\' . $suffix;
-    }
-    
+
     /**
      * Map the routes.
      */

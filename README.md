@@ -1,187 +1,216 @@
 # Laravel Router
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round)](LICENSE.md)
-[![Build Status](https://travis-ci.org/sebastiaanluca/laravel-router.svg?style=flat-round)](https://travis-ci.org/sebastiaanluca/laravel-router)
-[![Total Downloads](https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round)][link-packagist]
+[![Latest Version on Packagist][packagist-badge]][link-packagist]
+[![Software License][license-badge]](LICENSE.md)
+[![Build Status][travis-badge]][link-travis]
+[![Total Downloads][downloads-badge]][link-packagist]
 
-[![Share this package on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
-[![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=Check%20out%20this%20nifty%20way%20of%20organizing%20your%20%23Laravel%20routes!%20https%3A//github.com/sebastiaanluca/laravel-router%20via%20%40sebastiaanluca)
+[![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
+[![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-__An organized approach to handling routes in Laravel and Lumen.__ Also provides additional functionality on top of the default HTTP router.
+__An organized approach to handling routes in Laravel and Lumen.__
 
-The intended use is to organize your routes into **routers** based on functionality. For instance admin, public, and user routes are separated into different classes instead of one long `routes.php` file or scattered throughout different PHP files.
+This package provides you with an easy-to-use system to separate route logic into __routers__ based on functionality while also providing additional functionality. A replacement for those bulky `web.php` and `api.php` route files that are often lacking any structure and break Laravel structure conventions of separating everything in classes instead of regular PHP files.
 
-## Version
+Do note that it *changes nothing to the way you define your routes*. It's just a way of organizing them. Optionally you can use the additional functionality it provides, but that's not a requirement.
 
-Version 2 is targeted for use within a Laravel 5.3+ application. If you're looking for a version for 5.1 or 5.2, have a look at v1.
+## Table of contents
 
-## Install
+* [Requirements](#requirements)
+* [How to install](#how-to-install)
+    + [Laravel 5.5](#laravel-55)
+    + [Laravel 5.4](#laravel-54)
+    + [Further optional setup](#further-optional-setup)
+* [How to use](#how-to-use)
+    + [Creating a router](#creating-a-router)
+    + [Registering the router](#registering-the-router)
+        - [Manually registering the router](#manually-registering-the-router)
+* [Optional features](#optional-features)
+    + [Common route parameter patterns](#common-route-parameter-patterns)
+    + [Full-domain routing](#full-domain-routing)
+* [License](#license)
+* [Change log](#change-log)
+* [Testing](#testing)
+* [Contributing](#contributing)
+* [Security](#security)
+* [Credits](#credits)
+* [About](#about)
+
+Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io/markdown-toc/).
+
+## Requirements
+
+- PHP 7 or higher
+- Laravel 5.4 or higher
+
+Looking for support for PHP 5.x or Laravel 5.3 and earlier? Try out any of the previous package versions.
+
+## How to install
+
+### Laravel 5.5
+
+From Laravel 5.5 and onwards, this package supports auto-discovery. Just add the package to your project using composer and you're good to go!
+
+```bash
+composer require sebastiaanluca/laravel-router
+```
+
+### Laravel 5.4
 
 Install the package through Composer by using the following command:
 
-``` bash
+```bash
 composer require sebastiaanluca/laravel-router
 ```
 
 Add the service provider to the `providers` array in your `config/app.php` file:
 
-``` php
-SebastiaanLuca\Router\RouterServiceProvider::class,
+```php
+'providers' => [
+
+    SebastiaanLuca\Router\RouterServiceProvider::class,
+
+]
 ```
 
-Next, your application's HTTP kernel (usually found at `app\Http\Kernel` in your project) should extend the package's custom kernel instead of the default. So just replace `use Illuminate\Foundation\Http\Kernel as HttpKernel;` at the top of the class with the following line:
+### Further optional setup
 
-``` php
-use SebastiaanLuca\Router\Kernel as HttpKernel;
+If you want to be able to register your routers **in a single place**, add the `RegistersRouters` trait to your HTTP kernel (found at `App\Http\Kernel`):
+
+```php
+<?php
+
+namespace App\Http;
+
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use SebastiaanLuca\Router\Kernel\RegistersRouters;
+
+class Kernel extends HttpKernel
+{
+    use RegistersRouters;
+}
 ```
 
-### Development package
+## How to use
 
-Please specify a fixed version in your `composer.json` file when using this package in your project. This is still a work-in-progress and has no version 1.0 yet, which means it can change drastically throughout development.
+### Creating a router
 
-## Usage
+The following is an example of a router. It can be placed anywhere you like, though I'd suggest grouping them in the `App\Http\Routers` directory.
 
-### Setting up routers
-
-To get started, you have to create at least one router that will contain some routes. The following is an example of such a router. It can be placed anywhere you like, though I'd suggest grouping them under `App\Http\Routers`.
-
-The `map` method is where you should define your routes and is the *only* requirement when using a router. The Laravel routing instance is automatically resolved from the IoC container, so you can use any standard routing functionality you want with the additional functionality this package provides (see further down).
-
-__Remember__ that using this packages *changes nothing* to the way you define your routes. It's just a way of organizing them. Optionally you can use the additional functionality it provides, but that's not a requirement.
-
-``` php
+```php
 <?php
 
 namespace App\Http\Routers;
 
 use SebastiaanLuca\Router\Routers\Router;
 
-class PublicRouter extends Router
+class UserRouter extends Router
 {
     /**
      * Map the routes.
      */
     public function map()
     {
-        $this->router->group(['middleware' => ['web']], function () {
-        
-            $this->router->get('/', function () {
-                return view('welcome');
+        $this->router->group(['middleware' => ['web', 'guest']], function () {
+
+            $this->router->get('/users', function () {
+
+                return view('users.index');
+
             });
-            
+
         });
     }
 }
 ```
 
-To automatically have the package load your router and map its routes, add it to the `$routers` array in your application's kernel class (which should extend `SebastiaanLuca\Router\Kernel`):
+The `map` method is where you should define your routes and is the *only* requirement when using a router. The Laravel routing instance is automatically resolved from the IoC container, so you can use any standard routing functionality you want. Of course you can also use the `Route` facade.
 
-``` php
+### Registering the router
+
+To automatically have the framework load your router and map its routes, [add the trait](#further-optional-setup) and add the router to the `$routers` array in your application's HTTP kernel class:
+
+```php
 /**
- * The routers to automatically map.
+ * The application routers to automatically boot.
  *
  * @var array
  */
 protected $routers = [
-    PublicRouter::class,
+    \App\Http\Routers\UserRouter::class,
 ];
 ```
 
-If you're not using the custom kernel, you can also register the router manually by just instantiating it. This can be useful when making use of it in another package.
+#### Manually registering the router
 
-``` php
-app(PublicRouter::class);
+If you don't want to or can't add the trait to the kernel, you can also register the router manually by just instantiating it (in a service provider for instance). The parent base router will automatically resolve all dependencies and call the `map` method on your router.
+
+```php
+app(\App\Http\Routers\UserRouter::class);
 ```
 
-**Optionally**, you can define a namespace per router and use it with `$this->getNamespace()` in your mapping. Feel free to delete this local variable if you favor using something like `'uses' => PublicController::class . '@index'` which i.e. PHPStorm can detect when refactoring.
+Especially useful in packages!
 
-Example using a predefined namespace:
+## Optional features
 
-``` php
-/**
- * The default controller namespace.
- *
- * @var string
- */
-protected $namespace = 'App\Http\Controllers\Users';
+To use the following optional features, register the `RegisterRoutePatterns` class:
 
-/**
- * Map the routes.
- */
-public function map()
+```php
+<?php
+
+namespace App\Http;
+
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use SebastiaanLuca\Router\Kernel\RegistersRouters;
+
+class Kernel extends HttpKernel
 {
-    $this->router->group(['as' => 'public.', 'namespace' => $this->getNamespace()], function () {
-        
-        $this->router->get('/', ['as' => 'index', 'uses' => 'PublicController@index']);
-        
-    });
-}
-```
+    use RegistersRouters;
 
-Example using the class (name) itself (personal preference):
-
-``` php
-/**
- * Map the routes.
- */
-public function map()
-{
-    $this->router->group(['as' => 'public.'], function () {
-        
-        $this->router->get('/', ['as' => 'index', 'uses' => PublicController::class . '@index']);
-        
-    });
+    /**
+     * The application routers to automatically boot.
+     *
+     * @var array
+     */
+    protected $routers = [
+        \SebastiaanLuca\Router\Routers\RegisterRoutePatterns::class,
+    ];
 }
 ```
 
 ### Common route parameter patterns
 
-Laravel provides a convenient way to validate URL parameters using [patterns](https://laravel.com/docs/5.1/routing#route-parameters) in routes:
+Laravel provides a convenient way to validate URL parameters using [patterns](https://laravel.com/docs/5.1/routing#route-parameters) in routes. This package provides a predefined set of such patterns so you don't have to repeatedly add them to each route or define them yourself. The following parameter patterns are currently included:
 
-``` php
-Route::get('user/{id}/{name}', function ($id, $name) {
-    //
-})->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
-```
+- id (`\d+`)
+- hash (`[a-z0-9]+`)
+- uuid (`[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`)
+- slug (`[a-z0-9-]+`)
+- token (`[a-zA-Z0-9]{100}`)
 
-Such pattern can also be globally defined in a service provider, for instance for an ID:
+So forget about writing:
 
 ```php
-Route::pattern('id', '[0-9]+');
-```
-
-This package provides a predefined set of such patterns so you don't have to repeatedly add them to each route or define them yourself. The following parameter patterns are currently supported:
-
-- id
-- hash
-- uuid
-- slug
-
-Forget about writing:
-
-``` php
 Route::get('user/activations/{uuid}', function ($uuid) {
-    //
+    return view('users.activations.show');
 })->where('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
 ```
 
 Just use the `{uuid}` or any other pattern in your route:
 
-``` php
+```php
 $this->router->get('user/activations/{uuid}', function ($uuid) {
-    //
+    return view('users.activations.show');
 });
 ```
 
-
 ### Full-domain routing
 
-Another great feature of Laravel is [sub-domain routing](https://laravel.com/docs/5.1/routing#route-groups) which allows you to handle multiple subdomains within a single Laravel project. The only caveat there is that it only does that and doesn't handle full domains. Laravel Router fixes that for you so you can direct multiple domains to a single Laravel project and handle them all at once.
+Another great feature of Laravel is [sub-domain routing](https://laravel.com/docs/5.1/routing#route-groups) which allows you to handle multiple subdomains within a single Laravel project. The only caveat there is that it only does that and doesn't handle full domains.
 
-Simply define a route group with the `{domain}` pattern and use it in your callback or controller:
+Laravel Router fixes that for you so you can direct multiple domains to a single Laravel project and handle them all at once. Simply define a route group with the `{domain}` pattern and use it in your callback or controller:
 
-``` php
+```php
 $this->router->group(['domain' => '{domain}'], function () {
 
     $this->router->get('user/{id}', function ($domain, $id) {
@@ -191,49 +220,9 @@ $this->router->group(['domain' => '{domain}'], function () {
 });
 ```
 
-### Applying middleware using route names
+## License
 
-Laravel 4 had another awesome feature called [route filters](https://laravel.com/docs/4.2/routing#route-filters) that allowed you to apply a filter to a range of routes using their URL, optionally in combination with a wildcard. This was very useful when you had already defined your routes, but still wanted to apply a filter to them. Or when you wanted to apply a filter to the routes of a package, without extending or overriding anything.
-
-Laravel Router allows you to use a variation on that by applying middleware to already defined routes using their names. Very practical when you want to separate functionality, apply middleware conditionally and anywhere you want, apply just one or a series of middleware, et cetera.
-
-A very basic example to apply middleware to a single route:
-
-``` php
-$this->router->registerNamedRouteMiddleware('admin.users.index', AdminMiddleware::class);
-```
-
-Apply middleware to a bunch of routes using a wildcard
-
-``` php
-$this->router->registerNamedRouteMiddleware('admin.users.*', AdminMiddleware::class);
-```
-
-Handle multiple routes at once, even with wildcards:
-
-``` php
-$this->router->registerNamedRouteMiddleware(['admin.users.index', 'admin.users.edit', 'admin.items.*', 'front.auth.*', 'front.index'], YourMiddleware::class);
-```
-
-Assign multiple middleware:
-
-``` php
-$this->router->registerNamedRouteMiddleware('front.*', [DomainMiddleware::class, AuthMiddleware::class, OtherMiddleware::class]);
-```
-
-A combination of all:
-
-``` php
-$this->router->registerNamedRouteMiddleware(['admin.users.index', 'admin.users.edit', 'admin.items.*', 'front.auth.*', 'front.index'], [DomainMiddleware::class, AuthMiddleware::class, OtherMiddleware::class]);
-```
-
-### Notes
-
-In addition to using `$this->router` in your routers, you can also use the traditional `Route` facade anywhere in your application and still benefit from the extra functionality such as wildcard middleware and predefined route patterns.
-
-``` php
-Route::registerNamedRouteMiddleware('admin.users.*', AdminContextMiddleware::class);
-```
+This package operates under the MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 
 ## Change log
 
@@ -241,7 +230,10 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-Run `composer test` or `vendor/bin/phpunit`.
+``` bash
+composer install
+composer test
+```
 
 ## Contributing
 
@@ -249,23 +241,35 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email [hello@sebastiaanluca.com][author-email] instead of using the issue tracker.
+If you discover any security related issues, please email [hello@sebastiaanluca.com][link-author-email] instead of using the issue tracker.
 
 ## Credits
 
-- [Sebastiaan Luca][link-author]
+- [Sebastiaan Luca][link-github-profile]
 - [All Contributors][link-contributors]
 
 ## About
 
-My name is Sebastiaan and I'm a freelance back-end developer from Belgium specializing in building high-end, custom Laravel applications. Check out my [portfolio][author-portfolio] for more information and my other [packages](https://github.com/sebastiaanluca?tab=repositories) to kick-start your next project. Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][author-email]!
+My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-github-repositories] to kick-start your next project.
 
-## License
+Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
-This package operates under the MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
+[packagist-badge]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?style=flat-round
+[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round
+[travis-badge]: https://travis-ci.org/sebastiaanluca/laravel-router.svg?style=flat-round
+[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round
+
+[twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
+[twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-router
+[link-travis]: https://travis-ci.org/sebastiaanluca/laravel-router
 [link-contributors]: ../../contributors
-[link-author]: https://github.com/sebastiaanluca
-[author-portfolio]: http://www.sebastiaanluca.com
-[author-email]: mailto:hello@sebastiaanluca.com
+[link-twitter-share]: https://twitter.com/home?status=Check%20out%20this%20nifty%20way%20of%20organizing%20your%20%23Laravel%20routes!%20https%3A//github.com/sebastiaanluca/laravel-router%20via%20%40sebastiaanluca
+
+[link-github-profile]: https://github.com/sebastiaanluca
+[link-twitter]: https://twitter.com/sebastiaanluca
+[link-portfolio]: https://www.sebastiaanluca.com
+[link-blog]: https://blog.sebastiaanluca.com
+[link-github-repositories]: https://github.com/sebastiaanluca?tab=link-github-repositories
+[link-author-email]: mailto:hello@sebastiaanluca.com
