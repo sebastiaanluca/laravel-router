@@ -8,7 +8,7 @@ use SebastiaanLuca\Router\Tests\TestCase;
 
 class RouterTest extends TestCase
 {
-    public function testItMapsRoutes()
+    public function test it maps routes()
     {
         $registrar = $this->mock(Registrar::class);
 
@@ -19,7 +19,7 @@ class RouterTest extends TestCase
         $router->map();
     }
 
-    public function testItMapsRoutesOnCreation()
+    public function test it automatically maps routes on instantiation()
     {
         $registrar = $this->mock(Registrar::class);
 
