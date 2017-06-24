@@ -47,11 +47,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Foo\\Bar\\ServiceProvider"
-            ],
-            "aliases": {
-                "Bar": "Foo\\Bar\\Facade"
-            }
+                "SebastiaanLuca\\Router\\RouterServiceProvider"
+            ]
         }
     }
 }
