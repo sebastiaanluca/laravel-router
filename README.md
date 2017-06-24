@@ -8,7 +8,7 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-__An organized approach to handling routes in Laravel and Lumen.__
+__An organized approach to handling routes in Laravel.__
 
 This package provides you with an easy-to-use system to separate route logic into __routers__ based on functionality while also providing additional functionality. A replacement for those bulky `web.php` and `api.php` route files that are often lacking any structure and break Laravel structure conventions of separating everything in classes instead of regular PHP files.
 
