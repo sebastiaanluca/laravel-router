@@ -6,14 +6,23 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased (3.0.0)
 
+### Added
+
+- Added Laravel 5.5 auto-discovery
+
 ### Changed
 
-- Partially rewritten readme
+- Removed the custom kernel in favor of a trait to register routers
+- Renamed and made the bootstrap pattern router optional (now called `RegisterRoutePatterns` to better reflect what it does)
 - Added and refactored tests and test environment
+- Rewritten readme
 
 ### Removed
 
-- Dropped support for Laravel 5.1 and 5.2
+- Dropped support for Laravel 5.1, 5.2, and 5.3
+- Removed the extended router and all middleware functionality (to be moved to another package)
+- Removed namespace functionality (didn't add any real value)
+- Removed API router check in base router
 
 ## v2.1.2 (2017-01-24)
 
