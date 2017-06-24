@@ -83,7 +83,7 @@ If you want to be able to register your routers **in a single place**, add the `
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use SebastiaanLuca\Router\RegistersRouters;
+use SebastiaanLuca\Router\Kernel\RegistersRouters;
 
 class Kernel extends HttpKernel
 {
@@ -161,7 +161,7 @@ To use the following optional features, register the `RegisterRoutePatterns` cla
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use SebastiaanLuca\Router\RegistersRouters;
+use SebastiaanLuca\Router\Kernel\RegistersRouters;
 
 class Kernel extends HttpKernel
 {
