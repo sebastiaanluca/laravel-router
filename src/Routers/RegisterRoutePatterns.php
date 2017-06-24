@@ -3,18 +3,17 @@
 namespace SebastiaanLuca\Router\Routers;
 
 /**
- * A standard router to register commonly used route parameter patterns.
+ * Bootstrap commonly used route parameter patterns.
  *
  * @package SebastiaanLuca\Router\Routers
  */
-class BootstrapRouter extends Router
+class RegisterRoutePatterns extends Router
 {
     /**
      * Register the routes.
      */
     public function map()
     {
-        // Register route parameter/wildcard patterns
         $this->router->pattern('id', '\d+');
         $this->router->pattern('hash', '[a-z0-9]+');
         $this->router->pattern('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
