@@ -40,13 +40,21 @@
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.0-dev"
-        }
-    },
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Foo\\Bar\\ServiceProvider"
+            ],
+            "aliases": {
+                "Bar": "Foo\\Bar\\Facade"
+            }
+        }
+    }
 }
