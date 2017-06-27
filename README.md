@@ -5,7 +5,7 @@
 [![Build status][travis-badge]][link-travis]
 [![Total downloads][downloads-badge]][link-packagist]
 
-[![View my portfolio][portfolio-link-badge]][link-portfolio]
+[![Read my blog][blog-link-badge]][link-blog]
 [![View my other packages and projects][packages-link-badge]][link-packages]
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
@@ -261,7 +261,7 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 [travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-router/master.svg
 [downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg
 
-[portfolio-link-badge]: https://img.shields.io/badge/link-portfolio-lightgrey.svg
+[blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
 [packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
 [twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
 [twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
