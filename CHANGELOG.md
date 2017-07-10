@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 3.1.0 (2017-07-10)
+
 ### Added
 
 - Add GitHub issue template
