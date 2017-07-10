@@ -38,8 +38,6 @@ Do note that it *changes nothing to the way you define your routes*. It's just a
 * [Credits](#credits)
 * [About](#about)
 
-Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io/markdown-toc/).
-
 ## Requirements
 
 - PHP 7 or higher
