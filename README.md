@@ -250,7 +250,7 @@ If you discover any security related issues, please email [hello@sebastiaanluca.
 
 ## About
 
-My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-github-repositories] to kick-start your next project.
+My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-packages] to kick-start your next project.
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
@@ -270,9 +270,8 @@ Have a project that could use some guidance? Send me an e-mail at [hello@sebasti
 
 [link-portfolio]: https://www.sebastiaanluca.com
 [link-blog]: https://blog.sebastiaanluca.com
-[link-packages]: https://github.com/sebastiaanluca?tab=link-github-repositories
+[link-packages]: https://packagist.org/packages/sebastiaanluca
 [link-twitter]: https://twitter.com/sebastiaanluca
 [link-twitter-share]: https://twitter.com/home?status=Check%20out%20this%20nifty%20way%20of%20organizing%20your%20%23Laravel%20routes!%20https%3A//github.com/sebastiaanluca/laravel-router%20via%20%40sebastiaanluca
 [link-github-profile]: https://github.com/sebastiaanluca
-[link-github-repositories]: https://github.com/sebastiaanluca?tab=link-github-repositories
 [link-author-email]: mailto:hello@sebastiaanluca.com
