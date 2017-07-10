@@ -4,6 +4,21 @@ All notable changes to `laravel-router` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## Unreleased
+
+## 3.1.0 (2017-07-10)
+
+### Added
+
+- Add GitHub issue template
+- Add GitHub pull request template
+
+### Changed
+
+- Updated readme
+- Rewrite code of conduct
+- Rewrite contribution guidelines
+
 ## 3.0.0 (2017-06-24)
 
 ### Added

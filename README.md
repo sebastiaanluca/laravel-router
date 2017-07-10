@@ -1,14 +1,16 @@
 # Laravel Router
 
-[![Latest Version on Packagist][packagist-badge]][link-packagist]
-[![Software License][license-badge]](LICENSE.md)
-[![Build Status][travis-badge]][link-travis]
-[![Total Downloads][downloads-badge]][link-packagist]
+[![Latest stable release][version-badge]][link-packagist]
+[![Software license][license-badge]](LICENSE.md)
+[![Build status][travis-badge]][link-travis]
+[![Total downloads][downloads-badge]][link-packagist]
 
+[![Read my blog][blog-link-badge]][link-blog]
+[![View my other packages and projects][packages-link-badge]][link-packages]
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-__An organized approach to handling routes in Laravel and Lumen.__
+__An organized approach to handling routes in Laravel.__
 
 This package provides you with an easy-to-use system to separate route logic into __routers__ based on functionality while also providing additional functionality. A replacement for those bulky `web.php` and `api.php` route files that are often lacking any structure and break Laravel structure conventions of separating everything in classes instead of regular PHP files.
 
@@ -35,8 +37,6 @@ Do note that it *changes nothing to the way you define your routes*. It's just a
 * [Security](#security)
 * [Credits](#credits)
 * [About](#about)
-
-Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io/markdown-toc/).
 
 ## Requirements
 
@@ -250,26 +250,28 @@ If you discover any security related issues, please email [hello@sebastiaanluca.
 
 ## About
 
-My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-github-repositories] to kick-start your next project.
+My name is Sebastiaan and I'm a freelance Laravel developer specializing in building custom Laravel applications. Check out my [portfolio][link-portfolio] for more information, [my blog][link-blog] for the latest tips and tricks, and my other [packages][link-packages] to kick-start your next project.
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
-[packagist-badge]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?style=flat-round
-[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-round
-[travis-badge]: https://travis-ci.org/sebastiaanluca/laravel-router.svg?style=flat-round
-[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?style=flat-round
+[version-badge]: https://poser.pugx.org/sebastiaanluca/laravel-router/version
+[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+[travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-router/master.svg
+[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg
 
+[blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
+[packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
 [twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
 [twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-router
 [link-travis]: https://travis-ci.org/sebastiaanluca/laravel-router
 [link-contributors]: ../../contributors
-[link-twitter-share]: https://twitter.com/home?status=Check%20out%20this%20nifty%20way%20of%20organizing%20your%20%23Laravel%20routes!%20https%3A//github.com/sebastiaanluca/laravel-router%20via%20%40sebastiaanluca
 
-[link-github-profile]: https://github.com/sebastiaanluca
-[link-twitter]: https://twitter.com/sebastiaanluca
 [link-portfolio]: https://www.sebastiaanluca.com
 [link-blog]: https://blog.sebastiaanluca.com
-[link-github-repositories]: https://github.com/sebastiaanluca?tab=link-github-repositories
+[link-packages]: https://packagist.org/packages/sebastiaanluca
+[link-twitter]: https://twitter.com/sebastiaanluca
+[link-twitter-share]: https://twitter.com/home?status=Check%20out%20this%20nifty%20way%20of%20organizing%20your%20%23Laravel%20routes!%20https%3A//github.com/sebastiaanluca/laravel-router%20via%20%40sebastiaanluca
+[link-github-profile]: https://github.com/sebastiaanluca
 [link-author-email]: mailto:hello@sebastiaanluca.com
