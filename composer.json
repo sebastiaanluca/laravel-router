@@ -24,9 +24,9 @@
         "laravel/framework": "^5.4"
     },
     "require-dev": {
-        "mockery/mockery": "^0.9.7",
-        "orchestra/testbench": "3.3.*|^3.4.2",
-        "phpunit/phpunit": "^5.7|^6.2"
+        "mockery/mockery": "^1",
+        "orchestra/testbench": "^3.4.2",
+        "phpunit/phpunit": "^6.4"
     },
     "autoload": {
         "psr-4": {
