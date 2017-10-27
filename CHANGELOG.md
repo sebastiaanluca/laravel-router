@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+### Fixed
+
+- Upgraded Mockery to 1.0 which fixes tests running under PHP 7.2
+
 ## 3.1.0 (2017-07-10)
 
 ### Added
