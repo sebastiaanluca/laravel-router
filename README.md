@@ -20,7 +20,7 @@ Do note that it *changes nothing to the way you define your routes*. It's just a
 
 * [Requirements](#requirements)
 * [How to install](#how-to-install)
-    + [Laravel 5.5](#laravel-55)
+    + [Laravel 5.5 or higher](#laravel-55-or-higher)
     + [Laravel 5.4](#laravel-54)
     + [Further optional setup](#further-optional-setup)
 * [How to use](#how-to-use)
@@ -47,9 +47,9 @@ Looking for support for PHP 5.x or Laravel 5.3 and earlier? Try out any of the p
 
 ## How to install
 
-### Laravel 5.5
+### Laravel 5.5 or higher
 
-From Laravel 5.5 and onwards, this package supports auto-discovery. Just add the package to your project using composer and you're good to go!
+From Laravel 5.5 onwards, this package supports auto-discovery. Just add the package to your project using composer and you're good to go!
 
 ```bash
 composer require sebastiaanluca/laravel-router
@@ -216,7 +216,7 @@ $this->router->group(['domain' => '{domain}'], function () {
     $this->router->get('user/{id}', function ($domain, $id) {
         return 'You\'re visiting from ' . $domain;
     });
-    
+
 });
 ```
 
