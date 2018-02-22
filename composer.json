@@ -20,12 +20,12 @@
         }
     ],
     "require": {
-        "php": "^7",
-        "laravel/framework": "^5.4"
+        "php": "^7.1",
+        "laravel/framework": "^5.5"
     },
     "require-dev": {
         "mockery/mockery": "^1",
-        "orchestra/testbench": "^3.4",
+        "orchestra/testbench": "^3.5",
         "phpunit/phpunit": "^6.4|^7"
     },
     "autoload": {

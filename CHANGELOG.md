@@ -17,6 +17,11 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Change token route parameter length from 100 to 60
 
+### Removed
+
+- Dropped support for PHP 7
+- Dropped support for Laravel 5.4
+
 ## 3.1.1 (2017-10-27)
 
 ### Fixed

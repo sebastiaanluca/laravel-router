@@ -20,8 +20,6 @@ Do note that it *changes nothing to the way you define your routes*. It's just a
 
 * [Requirements](#requirements)
 * [How to install](#how-to-install)
-    + [Laravel 5.5 or higher](#laravel-55-or-higher)
-    + [Laravel 5.4](#laravel-54)
     + [Further optional setup](#further-optional-setup)
 * [How to use](#how-to-use)
     + [Creating a router](#creating-a-router)
@@ -40,37 +38,17 @@ Do note that it *changes nothing to the way you define your routes*. It's just a
 
 ## Requirements
 
-- PHP 7 or higher
-- Laravel 5.4 or higher
+- PHP 7.1 or higher
+- Laravel 5.5 or higher
 
-Looking for support for PHP 5.x or Laravel 5.3 and earlier? Try out any of the previous package versions.
+Looking for support for earlier versions? Try out any of the previous package versions.
 
 ## How to install
 
-### Laravel 5.5 or higher
-
-From Laravel 5.5 onwards, this package supports auto-discovery. Just add the package to your project using composer and you're good to go!
+Just add the package to your project using composer and Laravel will auto-discover the package:
 
 ```bash
 composer require sebastiaanluca/laravel-router
-```
-
-### Laravel 5.4
-
-Install the package through Composer by using the following command:
-
-```bash
-composer require sebastiaanluca/laravel-router
-```
-
-Add the service provider to the `providers` array in your `config/app.php` file:
-
-```php
-'providers' => [
-
-    SebastiaanLuca\Router\RouterServiceProvider::class,
-
-]
 ```
 
 ### Further optional setup
