@@ -45,7 +45,7 @@ Looking for support for earlier versions? Try out any of the previous package ve
 
 ## How to install
 
-Just add the package to your project using composer and Laravel will auto-discover the package:
+Just add the package to your project using Composer and Laravel will auto-discover it:
 
 ```bash
 composer require sebastiaanluca/laravel-router
