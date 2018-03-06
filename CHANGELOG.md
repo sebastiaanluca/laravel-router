@@ -6,7 +6,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
-## 4.0.0
+## 4.0.0 (2018-03-06)
 
 ### Added
 
