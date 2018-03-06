@@ -6,6 +6,22 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 4.0.0 (2018-03-06)
+
+### Added
+
+- Add testing environment for Laravel 5.6
+- Test PHP 7.2 on Travis
+
+### Changed
+
+- Change token route parameter length from 100 to 60
+
+### Removed
+
+- Dropped support for PHP 7
+- Dropped support for Laravel 5.4
+
 ## 3.1.1 (2017-10-27)
 
 ### Fixed
