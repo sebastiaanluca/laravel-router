@@ -6,6 +6,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 5.0.1 (2018-07-30)
+
+### Fixed
+
+- Fixed test classes not including return types for overridden methods
+
 ## 5.0.0 (2018-07-30)
 
 ### Changed

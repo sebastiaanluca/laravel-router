@@ -10,7 +10,10 @@ use SebastiaanLuca\Router\Tests\TestCase;
 
 class HttpKernelTest extends TestCase
 {
-    public function test it boots routers()
+    /**
+     * @test
+     */
+    public function it boots routers() : void
     {
         // Verify that the IoC container successfully created the router that
         // was registered (as a string) in the HTTP kernel. The actual router
