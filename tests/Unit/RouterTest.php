@@ -44,7 +44,7 @@ class RouterTest extends TestCase
             /**
              * Map the routes.
              */
-            public function map()
+            public function map() : void
             {
                 $this->router->get('/', ['as' => 'test']);
             }
