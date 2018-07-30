@@ -8,6 +8,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Changed
 
+- Added return types
 - Use strict array checking
 
 ## 4.0.0 (2018-03-06)

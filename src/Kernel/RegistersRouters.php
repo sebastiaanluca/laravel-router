@@ -23,8 +23,10 @@ trait RegistersRouters
 
     /**
      * Enable all registered kernel routers.
+     *
+     * @return void
      */
-    public function bootRouters()
+    public function bootRouters() : void
     {
         // Here we just need to instantiate each router as
         // they handle the mapping themselves

@@ -32,6 +32,8 @@ abstract class Router
 
     /**
      * Map the routes.
+     *
+     * @return void
      */
-    public abstract function map();
+    abstract public function map() : void;
 }
