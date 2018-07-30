@@ -8,42 +8,60 @@ use SebastiaanLuca\Router\Tests\TestCase;
 
 class RoutePatternTest extends TestCase
 {
-    public function test it maps the id pattern()
+    /**
+     * @test
+     */
+    public function it maps the id pattern() : void
     {
         $this->assertRoutePattern(function (Router $registrar) {
             $registrar->shouldReceive('pattern')->once()->with('id', '\d+');
         });
     }
 
-    public function test it maps the hash pattern()
+    /**
+     * @test
+     */
+    public function it maps the hash pattern() : void
     {
         $this->assertRoutePattern(function (Router $registrar) {
             $registrar->shouldReceive('pattern')->once()->with('hash', '[a-z0-9]+');
         });
     }
 
-    public function test it maps the uuid pattern()
+    /**
+     * @test
+     */
+    public function it maps the uuid pattern() : void
     {
         $this->assertRoutePattern(function (Router $registrar) {
             $registrar->shouldReceive('pattern')->once()->with('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
         });
     }
 
-    public function test it maps the slug pattern()
+    /**
+     * @test
+     */
+    public function it maps the slug pattern() : void
     {
         $this->assertRoutePattern(function (Router $registrar) {
             $registrar->shouldReceive('pattern')->once()->with('slug', '[a-z0-9-]+');
         });
     }
 
-    public function test it maps the token pattern()
+    /**
+     * @test
+     */
+    public function it maps the token pattern() : void
     {
         $this->assertRoutePattern(function (Router $registrar) {
             $registrar->shouldReceive('pattern')->once()->with('token', '[a-zA-Z0-9]{60}');
         });
     }
 
-    public function test it maps the domain pattern()
+    /**
+     * @test
+     */
+    public function it maps the domain pattern() : void
     {
         $this->assertRoutePattern(function (Router $registrar) {
             $registrar->shouldReceive('pattern')->once()->with('domain', '[a-z0-9.]+');
@@ -53,7 +71,7 @@ class RoutePatternTest extends TestCase
     /**
      * @param callable $assertion
      */
-    protected function assertRoutePattern(callable $assertion)
+    protected function assertRoutePattern(callable $assertion) : void
     {
         $registrar = $this->mock(Router::class)->shouldIgnoreMissing();
 
