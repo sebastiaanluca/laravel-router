@@ -11,7 +11,7 @@ if (! function_exists('class_uses_trait')) {
 
         $trait = is_object($trait) ? get_class($trait) : $trait;
 
-        if (! in_array($trait, array_values($uses))) {
+        if (! in_array($trait, array_values($uses), true)) {
             return false;
         }
 

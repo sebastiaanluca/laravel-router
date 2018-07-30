@@ -11,8 +11,10 @@ class RegisterRoutePatterns extends Router
 {
     /**
      * Register the routes.
+     *
+     * @return void
      */
-    public function map()
+    public function map() : void
     {
         $this->router->pattern('id', '\d+');
         $this->router->pattern('hash', '[a-z0-9]+');
