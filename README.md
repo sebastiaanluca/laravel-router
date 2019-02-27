@@ -38,8 +38,8 @@ Do note that it *changes nothing to the way you define your routes*. It's just a
 
 ## Requirements
 
-- PHP 7.1 or higher
-- Laravel 5.5 or higher
+- PHP 7.2 or higher
+- Laravel 5.8 or higher
 
 Looking for support for earlier versions? Try out any of the previous package versions.
 
