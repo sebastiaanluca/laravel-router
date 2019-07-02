@@ -164,7 +164,7 @@ Laravel provides a convenient way to validate URL parameters using [patterns](ht
 - hash (`[a-z0-9]+`)
 - uuid (`[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`)
 - slug (`[a-z0-9-]+`)
-- token (`[a-zA-Z0-9]{60}`)
+- token (`[a-zA-Z0-9]{64}`)
 
 So forget about writing:
 
