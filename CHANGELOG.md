@@ -6,6 +6,17 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 7.0.0 (2019-07-02)
+
+### Changed
+
+- Optimized internal methods
+- Updated dependencies
+
+### Fixed
+
+- Fixed token pattern to use correct 64 character length (by [ospira](https://github.com/ospira))
+
 ## 6.0.0 (2019-02-27)
 
 ### Added
