@@ -54,7 +54,7 @@ class RoutePatternTest extends TestCase
     public function it maps the token pattern() : void
     {
         $this->assertRoutePattern(function (Router $registrar) {
-            $registrar->shouldReceive('pattern')->once()->with('token', '[a-zA-Z0-9]{60}');
+            $registrar->shouldReceive('pattern')->once()->with('token', '[a-zA-Z0-9]{64}');
         });
     }
 
