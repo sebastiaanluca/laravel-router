@@ -4,6 +4,7 @@
 [![Software license][license-badge]](LICENSE.md)
 [![Build status][travis-badge]][link-travis]
 [![Total downloads][downloads-badge]][link-packagist]
+[![Total stars][stars-badge]][link-github]
 
 [![Read my blog][blog-link-badge]][link-blog]
 [![View my other packages and projects][packages-link-badge]][link-packages]
@@ -232,16 +233,18 @@ My name is Sebastiaan and I'm a freelance Laravel developer specializing in buil
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
-[version-badge]: https://poser.pugx.org/sebastiaanluca/laravel-router/version
-[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+[version-badge]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-router.svg?label=stable
+[license-badge]: https://img.shields.io/badge/license-MIT-informational.svg
 [travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-router/master.svg
-[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg
+[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-router.svg?color=brightgreen
+[stars-badge]: https://img.shields.io/github/stars/sebastiaanluca/laravel-router.svg?color=brightgreen
 
 [blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
 [packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
 [twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
 [twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
 
+[link-github]: https://github.com/sebastiaanluca/laravel-router
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-router
 [link-travis]: https://travis-ci.org/sebastiaanluca/laravel-router
 [link-contributors]: ../../contributors
