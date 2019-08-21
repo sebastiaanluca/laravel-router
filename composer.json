@@ -21,12 +21,13 @@
     ],
     "require": {
         "php": "^7.2",
-        "laravel/framework": "5.8.*"
+        "laravel/framework": "5.8.*|^6.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.2.2",
-        "orchestra/testbench": "3.8.*",
-        "phpunit/phpunit": "^8.2"
+        "orchestra/testbench": "3.8.*|^4.0",
+        "phpunit/phpunit": "^8.3",
+        "sebastiaanluca/php-codesniffer-ruleset": "^0.4.2"
     },
     "autoload": {
         "psr-4": {
