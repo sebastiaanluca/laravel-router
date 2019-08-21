@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\Router\Kernel;
 
 use SebastiaanLuca\Router\Exceptions\RouterException;
@@ -10,6 +12,7 @@ trait RegistersRouters
      * Get the registered kernel routers.
      *
      * @return array
+     *
      * @throws \SebastiaanLuca\Router\Exceptions\RouterException
      */
     public function getRouters() : array

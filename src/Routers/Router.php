@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\Router\Routers;
 
 use Illuminate\Contracts\Routing\Registrar;
