@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\Router\Tests\Unit;
 
 use Illuminate\Contracts\Routing\Registrar as Router;
@@ -34,7 +36,9 @@ class RoutePatternTest extends TestCase
     public function it maps the uuid pattern() : void
     {
         $this->assertRoutePattern(function (Router $registrar) {
-            $registrar->shouldReceive('pattern')->once()->with('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
+            $registrar->shouldReceive('pattern')
+                ->once()
+                ->with('uuid', '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
         });
     }
 

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 if (! function_exists('class_uses_trait')) {
     /**
-     * @param $class
-     * @param $trait
+     * @param object|string $class
+     * @param object|string $trait
      *
      * @return bool
      */
