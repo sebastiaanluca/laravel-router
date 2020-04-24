@@ -39,8 +39,8 @@ Do note that it *changes nothing to the way you define your routes*. It's just a
 
 ## Requirements
 
-- PHP 7.2 or higher
-- Laravel 5.8 or higher
+- PHP 7.3 or higher
+- Laravel 6.0 or higher
 
 Looking for support for earlier versions? Try out any of the previous package versions.
 
