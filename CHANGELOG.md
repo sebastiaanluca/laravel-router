@@ -4,6 +4,16 @@ All notable changes to `laravel-router` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 10.0.0 (2020-10-19)
+
+### Added
+
+- Added support for Laravel 8
+
+### Removed
+
+- Dropped support for Laravel 6
+
 ## 9.0.0 (2020-04-24)
 
 ### Added
